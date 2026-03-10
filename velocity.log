@@ -1,0 +1,53 @@
+Tue Mar 10 12:12:45 GMT+08:00 2026  [debug] AvalonLogSystem initialized using logfile 'velocity.log'
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] ************************************************************** 
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Starting Jakarta Velocity v1.4
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] RuntimeInstance initializing.
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Trying to use logger class org.apache.velocity.runtime.log.AvalonLogSystem
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Using logger class org.apache.velocity.runtime.log.AvalonLogSystem
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Resource Loader Instantiated: org.apache.velocity.runtime.resource.loader.FileResourceLoader
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] FileResourceLoader : initialization starting.
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] FileResourceLoader : adding path 'd:\quartus13.1\altera\ip\altera\fir_compiler\lib\ip_toolbench\..\template'
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] FileResourceLoader : adding path '.'
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] FileResourceLoader : initialization complete.
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Resource Loader Instantiated: org.apache.velocity.runtime.resource.loader.JarResourceLoader
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] JarResourceLoader : initialization starting.
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] JarResourceLoader # of paths : 0
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] JarResourceLoader : initialization complete.
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Resource Loader Instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] ClasspathResourceLoader : initialization starting.
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] ClasspathResourceLoader : initialization complete.
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] ResourceCache : initialized. (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Default ResourceManager initialization complete.
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Loaded System Directive: org.apache.velocity.runtime.directive.Include
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Created: 20 parsers.
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Velocimacro : initialization starting.
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Velocimacro : adding VMs from VM library template : VM_global_library.vm
+Tue Mar 10 12:12:45 GMT+08:00 2026  [error] ResourceManager : unable to find resource 'VM_global_library.vm' in any resource loader.
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Velocimacro : error using  VM library template VM_global_library.vm : org.apache.velocity.exception.ResourceNotFoundException: Unable to find resource 'VM_global_library.vm'
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Velocimacro :  VM library template macro registration complete.
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Velocimacro : allowInline = true : VMs can be defined inline in templates
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Velocimacro : allowInlineLocal = false : VMs defined inline will be  global in scope if allowed.
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Velocimacro : messages on  : VM system will output logging messages
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Velocimacro : autoload off  : VM system will not automatically reload global library macros
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Velocimacro : initialization complete.
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] Velocity successfully started.
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] ResourceManager : found tb_avalon_st.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] ResourceManager : found alt_license_vhdl.txt with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] ResourceManager : found auk_dspip_fir_top_avalon_streaming.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] ResourceManager : found alt_license_vhdl.txt with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] ResourceManager : found generic_msim_script.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] ResourceManager : found alt_license_tcl.txt with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] ResourceManager : found constant_part_of_tcl_script.tcl with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] ResourceManager : found fir_input.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] ResourceManager : found matlab_model.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] ResourceManager : found alt_license_matlab.txt with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] ResourceManager : found matlab_model_base.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] ResourceManager : found fir_nativelink_tcl.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+Tue Mar 10 12:12:45 GMT+08:00 2026   [info] ResourceManager : found alt_license_tcl.txt with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader

@@ -1,0 +1,305 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x000000006da2b4fb, pid=29920, tid=12772
+#
+# JRE version: 6.0_23-b05
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (19.0-b09 mixed mode windows-amd64 compressed oops)
+# Problematic frame:
+# V  [jvm.dll+0x23b4fb]
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000007e61000):  JavaThread "Java2D Disposer" daemon [_thread_in_vm, id=12772, stack(0x0000000008610000,0x0000000008710000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x0000000000000011
+
+Registers:
+RAX=0x000000000870f318, RBX=0x0000000007d143c8, RCX=0x0000000000000000, RDX=0x0000000007e61000
+RSP=0x000000000870f270, RBP=0x0000000000000000, RSI=0x0000000007d09c10, RDI=0x000000000870f460
+R8=0x0000000000000001, R9=0x0000000000000001, R10=0x00000000029d1273, R11=0x000000000870f3e8
+R12=0x0000000007e61000, R13=0x0000000007d143c0, R14=0x000000000870f430, R15=0x0000000000000003
+RIP=0x000000006da2b4fb, EFLAGS=0x0000000000010203
+
+Register to memory mapping:
+
+RAX=0x000000000870f318
+0x000000000870f318 is pointing into the stack for thread: 0x0000000007e61000
+"Java2D Disposer" daemon prio=10 tid=0x0000000007e61000 nid=0x31e4 runnable [0x000000000870f000]
+   java.lang.Thread.State: RUNNABLE
+
+RBX=0x0000000007d143c8
+0x0000000007d143c8 is pointing to unknown location
+
+RCX=0x0000000000000000
+0x0000000000000000 is pointing to unknown location
+
+RDX=0x0000000007e61000
+"Java2D Disposer" daemon prio=10 tid=0x0000000007e61000 nid=0x31e4 runnable [0x000000000870f000]
+   java.lang.Thread.State: RUNNABLE
+
+RSP=0x000000000870f270
+0x000000000870f270 is pointing into the stack for thread: 0x0000000007e61000
+"Java2D Disposer" daemon prio=10 tid=0x0000000007e61000 nid=0x31e4 runnable [0x000000000870f000]
+   java.lang.Thread.State: RUNNABLE
+
+RBP=0x0000000000000000
+0x0000000000000000 is pointing to unknown location
+
+RSI=0x0000000007d09c10
+0x0000000007d09c10 is pointing to unknown location
+
+RDI=0x000000000870f460
+0x000000000870f460 is pointing into the stack for thread: 0x0000000007e61000
+"Java2D Disposer" daemon prio=10 tid=0x0000000007e61000 nid=0x31e4 runnable [0x000000000870f000]
+   java.lang.Thread.State: RUNNABLE
+
+R8 =0x0000000000000001
+0x0000000000000001 is pointing to unknown location
+
+R9 =0x0000000000000001
+0x0000000000000001 is pointing to unknown location
+
+R10=0x00000000029d1273
+method entry point (kind = native)  [0x00000000029d1000, 0x00000000029d1880]  2176 bytes
+
+R11=0x000000000870f3e8
+0x000000000870f3e8 is pointing into the stack for thread: 0x0000000007e61000
+"Java2D Disposer" daemon prio=10 tid=0x0000000007e61000 nid=0x31e4 runnable [0x000000000870f000]
+   java.lang.Thread.State: RUNNABLE
+
+R12=0x0000000007e61000
+"Java2D Disposer" daemon prio=10 tid=0x0000000007e61000 nid=0x31e4 runnable [0x000000000870f000]
+   java.lang.Thread.State: RUNNABLE
+
+R13=0x0000000007d143c0
+0x0000000007d143c0 is pointing to unknown location
+
+R14=0x000000000870f430
+0x000000000870f430 is pointing into the stack for thread: 0x0000000007e61000
+"Java2D Disposer" daemon prio=10 tid=0x0000000007e61000 nid=0x31e4 runnable [0x000000000870f000]
+   java.lang.Thread.State: RUNNABLE
+
+R15=0x0000000000000003
+0x0000000000000003 is pointing to unknown location
+
+
+Top of Stack: (sp=0x000000000870f270)
+0x000000000870f270:   000000006dd50930 0000000007d143f8
+0x000000000870f280:   0000000000000004 000000000000000e
+0x000000000870f290:   0000000000000000 000000006dbb5889
+0x000000000870f2a0:   0000000007d09c10 0000000007d133c0
+0x000000000870f2b0:   0000000007d133d0 0000000007d137a8
+0x000000000870f2c0:   000000000870f338 0000000007d143b8
+0x000000000870f2d0:   00000000005c9120 000000006da1065a
+0x000000000870f2e0:   0000000000000000 0000000007d143b8
+0x000000000870f2f0:   0000000007d143b8 000000000870f460
+0x000000000870f300:   0000000007e611c8 0000000007d143c0
+0x000000000870f310:   0000000000000000 0000000007d143c0
+0x000000000870f320:   0000000007e61000 0000000007d133c0
+0x000000000870f330:   00000000000014dd 000000006dd69b60
+0x000000000870f340:   0000000007d143f0 0000000000000003
+0x000000000870f350:   0000000000000021 00000000000001dd
+0x000000000870f360:   0000000000000009 000000000870f318 
+
+Instructions: (pc=0x000000006da2b4fb)
+0x000000006da2b4eb:   00 00 4c 89 2c c8 ff 84 24 08 01 00 00 4c 8b 03
+0x000000006da2b4fb:   49 8b 40 10 4d 8b 40 18 0f b7 48 42 4d 8b 44 c8 
+
+
+Stack: [0x0000000008610000,0x0000000008710000],  sp=0x000000000870f270,  free space=1020k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x23b4fb]
+
+[error occurred during error reporting (printing native stack), id 0xc0000005]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.awt.Cursor.finalizeImpl(J)V+0
+j  java.awt.Cursor.access$000(J)V+1
+j  java.awt.Cursor$CursorDisposer.dispose()V+13
+j  sun.java2d.Disposer.run()V+26
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x000000000af16000 JavaThread "AWT-EventQueue-0" [_thread_blocked, id=28996, stack(0x000000001bce0000,0x000000001bde0000)]
+  0x000000000af16800 JavaThread "TimerQueue" daemon [_thread_blocked, id=28992, stack(0x000000001cec0000,0x000000001cfc0000)]
+  0x000000000af13000 JavaThread "DestroyJavaVM" [_thread_blocked, id=32932, stack(0x00000000027c0000,0x00000000028c0000)]
+  0x000000000af10000 JavaThread "Timer-0" [_thread_blocked, id=17444, stack(0x000000001ec70000,0x000000001ed70000)]
+  0x0000000007e62000 JavaThread "AWT-Shutdown" [_thread_blocked, id=10572, stack(0x0000000008710000,0x0000000008810000)]
+=>0x0000000007e61000 JavaThread "Java2D Disposer" daemon [_thread_in_vm, id=12772, stack(0x0000000008610000,0x0000000008710000)]
+  0x0000000007d0b800 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=6456, stack(0x0000000008300000,0x0000000008400000)]
+  0x0000000007d0b000 JavaThread "CompilerThread1" daemon [_thread_blocked, id=24524, stack(0x0000000008200000,0x0000000008300000)]
+  0x0000000007d09000 JavaThread "CompilerThread0" daemon [_thread_blocked, id=27884, stack(0x0000000008100000,0x0000000008200000)]
+  0x0000000007d08000 JavaThread "Attach Listener" daemon [_thread_blocked, id=23940, stack(0x0000000008000000,0x0000000008100000)]
+  0x0000000007d07800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=11392, stack(0x0000000007f00000,0x0000000008000000)]
+  0x00000000029ab800 JavaThread "Finalizer" daemon [_thread_blocked, id=22612, stack(0x0000000007c00000,0x0000000007d00000)]
+  0x00000000029a8800 JavaThread "Reference Handler" daemon [_thread_blocked, id=30104, stack(0x0000000007b00000,0x0000000007c00000)]
+
+Other Threads:
+  0x00000000029a4800 VMThread [stack: 0x0000000007a00000,0x0000000007b00000] [id=18528]
+
+VM state:synchronizing (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00000000005c8a20] Threads_lock - owner thread: 0x00000000029a4800
+
+Heap
+ PSYoungGen      total 11264K, used 170K [0x00000000eaab0000, 0x00000000ec440000, 0x0000000100000000)
+  eden space 10560K, 1% used [0x00000000eaab0000,0x00000000eaadaa08,0x00000000eb500000)
+  from space 704K, 0% used [0x00000000eb530000,0x00000000eb530000,0x00000000eb5e0000)
+  to   space 7808K, 0% used [0x00000000ebca0000,0x00000000ebca0000,0x00000000ec440000)
+ PSOldGen        total 43712K, used 11589K [0x00000000c0000000, 0x00000000c2ab0000, 0x00000000eaab0000)
+  object space 43712K, 26% used [0x00000000c0000000,0x00000000c0b51590,0x00000000c2ab0000)
+ PSPermGen       total 43968K, used 22297K [0x00000000bae00000, 0x00000000bd8f0000, 0x00000000c0000000)
+  object space 43968K, 50% used [0x00000000bae00000,0x00000000bc3c6660,0x00000000bd8f0000)
+
+Dynamic libraries:
+0x0000000000400000 - 0x000000000042e000 	d:\quartus13.1\altera\quartus\bin64\jre64\bin\java.exe
+0x00007ffb8ab20000 - 0x00007ffb8ad88000 	C:\windows\SYSTEM32\ntdll.dll
+0x00007ffb89550000 - 0x00007ffb89619000 	C:\windows\System32\KERNEL32.DLL
+0x00007ffb88490000 - 0x00007ffb88881000 	C:\windows\System32\KERNELBASE.dll
+0x00007ffb888f0000 - 0x00007ffb889a4000 	C:\windows\System32\ADVAPI32.dll
+0x00007ffb89110000 - 0x00007ffb891b9000 	C:\windows\System32\msvcrt.dll
+0x00007ffb8a9c0000 - 0x00007ffb8aa66000 	C:\windows\System32\sechost.dll
+0x00007ffb8a8a0000 - 0x00007ffb8a9b8000 	C:\windows\System32\RPCRT4.dll
+0x000000006d7f0000 - 0x000000006dee0000 	d:\quartus13.1\altera\quartus\bin64\jre64\bin\server\jvm.dll
+0x00007ffb89b50000 - 0x00007ffb89d16000 	C:\windows\System32\USER32.dll
+0x00007ffb88890000 - 0x00007ffb888b7000 	C:\windows\System32\win32u.dll
+0x00007ffb888c0000 - 0x00007ffb888eb000 	C:\windows\System32\GDI32.dll
+0x00007ffb88360000 - 0x00007ffb8848b000 	C:\windows\System32\gdi32full.dll
+0x00007ffb87770000 - 0x00007ffb87813000 	C:\windows\System32\msvcp_win.dll
+0x00007ffb88210000 - 0x00007ffb8835b000 	C:\windows\System32\ucrtbase.dll
+0x00007ffb7aac0000 - 0x00007ffb7aaf5000 	C:\windows\SYSTEM32\WINMM.dll
+0x00007ffb89620000 - 0x00007ffb89651000 	C:\windows\System32\IMM32.DLL
+0x000000006d760000 - 0x000000006d76e000 	d:\quartus13.1\altera\quartus\bin64\jre64\bin\verify.dll
+0x000000006d3b0000 - 0x000000006d3d7000 	d:\quartus13.1\altera\quartus\bin64\jre64\bin\java.dll
+0x000000006d310000 - 0x000000006d31a000 	d:\quartus13.1\altera\quartus\bin64\jre64\bin\hpi.dll
+0x00007ffb89f80000 - 0x00007ffb89f88000 	C:\windows\System32\PSAPI.DLL
+0x000000006d7b0000 - 0x000000006d7c2000 	d:\quartus13.1\altera\quartus\bin64\jre64\bin\zip.dll
+0x000000006d000000 - 0x000000006d1c3000 	D:\Quartus13.1\altera\quartus\bin64\jre64\bin\awt.dll
+0x00007ffb899b0000 - 0x00007ffb89b47000 	C:\windows\System32\ole32.dll
+0x00007ffb891c0000 - 0x00007ffb89546000 	C:\windows\System32\combase.dll
+0x00007ffb48e20000 - 0x00007ffb48ed0000 	C:\windows\SYSTEM32\WINSPOOL.DRV
+0x00007ffb889b0000 - 0x00007ffb89102000 	C:\windows\System32\SHELL32.dll
+0x00007ffb87400000 - 0x00007ffb8756a000 	C:\windows\System32\wintypes.dll
+0x00007ffb8a100000 - 0x00007ffb8a1f6000 	C:\windows\System32\shcore.dll
+0x00007ffb86f70000 - 0x00007ffb86fc7000 	C:\windows\SYSTEM32\cfgmgr32.dll
+0x00007ffb68ac0000 - 0x00007ffb68d53000 	C:\windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.7824_none_3e0870b2e3345462\COMCTL32.dll
+0x00007ffb84960000 - 0x00007ffb849fe000 	C:\windows\SYSTEM32\apphelp.dll
+0x00007ffb84e10000 - 0x00007ffb84e41000 	C:\windows\SYSTEM32\DWMAPI.DLL
+0x00007ffb84b40000 - 0x00007ffb84beb000 	C:\windows\system32\uxtheme.dll
+0x00007ffb89f90000 - 0x00007ffb8a0ef000 	C:\windows\System32\MSCTF.dll
+0x00007ffb861a0000 - 0x00007ffb861bb000 	C:\windows\SYSTEM32\kernel.appcore.dll
+0x00007ffb87570000 - 0x00007ffb87615000 	C:\windows\System32\bcryptPrimitives.dll
+0x00007ffb87820000 - 0x00007ffb88083000 	C:\windows\System32\Windows.Storage.dll
+0x00007ffb898c0000 - 0x00007ffb89927000 	C:\windows\System32\shlwapi.dll
+0x000000006d2a0000 - 0x000000006d306000 	D:\Quartus13.1\altera\quartus\bin64\jre64\bin\fontmanager.dll
+0x000000006d600000 - 0x000000006d617000 	D:\Quartus13.1\altera\quartus\bin64\jre64\bin\net.dll
+0x00007ffb89660000 - 0x00007ffb896d4000 	C:\windows\System32\WS2_32.dll
+0x00007ffb86710000 - 0x00007ffb8677b000 	C:\windows\system32\mswsock.dll
+0x000000006d620000 - 0x000000006d62b000 	D:\Quartus13.1\altera\quartus\bin64\jre64\bin\nio.dll
+0x00007ffb84c40000 - 0x00007ffb84c84000 	C:\windows\SYSTEM32\dxcore.dll
+0x00007ffb6ef90000 - 0x00007ffb6efb0000 	C:\windows\System32\DriverStore\FileRepository\u0404804.inf_amd64_939f1ca7cdbd6fd8\B404750\atidx9loader64.dll
+0x00007ffb04f70000 - 0x00007ffb087b4000 	C:\windows\System32\DriverStore\FileRepository\u0404804.inf_amd64_939f1ca7cdbd6fd8\B404750\AMDXN64.DLL
+0x00007ffb8a200000 - 0x00007ffb8a689000 	C:\windows\System32\SETUPAPI.dll
+0x00007ffb84cb0000 - 0x00007ffb84dec000 	C:\windows\SYSTEM32\dxgi.dll
+0x00007ffb87260000 - 0x00007ffb872be000 	C:\windows\SYSTEM32\powrprof.dll
+0x00007ffb87240000 - 0x00007ffb87254000 	C:\windows\SYSTEM32\UMPDC.dll
+0x00007ffb872f0000 - 0x00007ffb8731a000 	C:\windows\SYSTEM32\BCrypt.dll
+0x00007ffb79b30000 - 0x00007ffb79b67000 	C:\windows\System32\DriverStore\FileRepository\u0404804.inf_amd64_939f1ca7cdbd6fd8\B404750\amdihk64.dll
+0x00007ffb03630000 - 0x00007ffb03a1f000 	D:\Quartus13.1\altera\quartus\bin64\eperl.dll
+0x00007ffb8a7a0000 - 0x00007ffb8a88f000 	C:\windows\System32\COMDLG32.dll
+0x00007ffb6d9c0000 - 0x00007ffb6d9da000 	C:\windows\SYSTEM32\NETAPI32.dll
+0x0000000060780000 - 0x0000000060852000 	C:\windows\SYSTEM32\MSVCR100.dll
+0x00007ffb89de0000 - 0x00007ffb89eb7000 	C:\windows\System32\OLEAUT32.dll
+0x00007ffb66ac0000 - 0x00007ffb66c09000 	C:\windows\SYSTEM32\textinputframework.dll
+0x00007ffb869e0000 - 0x00007ffb869fb000 	C:\windows\SYSTEM32\CRYPTSP.dll
+0x00007ffb86100000 - 0x00007ffb86139000 	C:\windows\system32\rsaenh.dll
+0x00007ffb867c0000 - 0x00007ffb867eb000 	C:\windows\SYSTEM32\USERENV.dll
+0x00007ffb87320000 - 0x00007ffb87349000 	C:\windows\SYSTEM32\profapi.dll
+0x00007ffb86a00000 - 0x00007ffb86a0c000 	C:\windows\SYSTEM32\CRYPTBASE.dll
+0x00007ffb60a50000 - 0x00007ffb60a68000 	C:\windows\system32\napinsp.dll
+0x00007ffb85bb0000 - 0x00007ffb85cdc000 	C:\windows\SYSTEM32\DNSAPI.dll
+0x00007ffb85b70000 - 0x00007ffb85ba4000 	C:\windows\SYSTEM32\IPHLPAPI.DLL
+0x00007ffb8a690000 - 0x00007ffb8a69a000 	C:\windows\System32\NSI.dll
+0x00007ffb60a30000 - 0x00007ffb60a42000 	C:\windows\System32\winrnr.dll
+0x00007ffb60a00000 - 0x00007ffb60a22000 	C:\windows\system32\nlansp_c.dll
+0x00007ffb7f530000 - 0x00007ffb7f546000 	C:\windows\system32\wshbth.dll
+0x00007ffb7ffa0000 - 0x00007ffb7ffab000 	C:\Windows\System32\rasadhlp.dll
+0x00007ffb815d0000 - 0x00007ffb81656000 	C:\windows\System32\fwpuclnt.dll
+0x00007ffb89ec0000 - 0x00007ffb89f70000 	C:\windows\System32\clbcatq.dll
+0x000000006d4d0000 - 0x000000006d505000 	D:\Quartus13.1\altera\quartus\bin64\jre64\bin\jpeg.dll
+0x00007ffb84570000 - 0x00007ffb84697000 	C:\windows\SYSTEM32\CoreMessaging.dll
+0x00007ffb7f6c0000 - 0x00007ffb7f9a2000 	C:\windows\SYSTEM32\CoreUIComponents.dll
+0x00007ffb82050000 - 0x00007ffb82153000 	C:\windows\system32\propsys.dll
+0x00007ffb83140000 - 0x00007ffb8336f000 	C:\windows\SYSTEM32\WindowsCodecs.dll
+0x00007ffb82bf0000 - 0x00007ffb82ca5000 	C:\windows\SYSTEM32\policymanager.dll
+0x00007ffb86440000 - 0x00007ffb86489000 	C:\windows\SYSTEM32\SspiCli.dll
+0x00007ffb6d990000 - 0x00007ffb6d9b1000 	C:\windows\SYSTEM32\MPR.dll
+0x00007ffb6fca0000 - 0x00007ffb6fcc2000 	C:\windows\System32\p9np.dll
+0x00007ffb80280000 - 0x00007ffb8028d000 	C:\windows\System32\drprov.dll
+0x00007ffb65bb0000 - 0x00007ffb65bd4000 	C:\windows\System32\ntlanman.dll
+0x00007ffb5b9a0000 - 0x00007ffb5b9c1000 	C:\windows\System32\davclnt.dll
+0x00007ffb87000000 - 0x00007ffb87063000 	C:\windows\System32\WINSTA.dll
+0x00007ffb80260000 - 0x00007ffb8027b000 	C:\windows\System32\wkscli.dll
+0x00007ffb49320000 - 0x00007ffb49333000 	C:\windows\SYSTEM32\cscapi.dll
+0x00007ffb85b60000 - 0x00007ffb85b6d000 	C:\windows\System32\netutils.dll
+0x00007ffb5b7e0000 - 0x00007ffb5b810000 	C:\Windows\System32\DevDispItemProvider.dll
+0x00007ffb86f40000 - 0x00007ffb86f6d000 	C:\windows\System32\DEVOBJ.dll
+0x00007ffb3d190000 - 0x00007ffb3d368000 	C:\windows\WinSxS\amd64_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.26100.7824_none_6ef363983dc6ce30\gdiplus.dll
+0x00007ffb87620000 - 0x00007ffb876a2000 	C:\windows\System32\WINTRUST.dll
+0x00007ffb88090000 - 0x00007ffb88207000 	C:\windows\System32\CRYPT32.dll
+0x00007ffb86a50000 - 0x00007ffb86a63000 	C:\windows\SYSTEM32\MSASN1.dll
+0x00007ffb09030000 - 0x00007ffb09068000 	C:\Windows\System32\EhStorShell.dll
+0x00007ffb65640000 - 0x00007ffb6564f000 	C:\windows\SYSTEM32\LINKINFO.dll
+0x00007ffb80820000 - 0x00007ffb8082b000 	C:\windows\system32\IconCodecService.dll
+0x00007ffb84920000 - 0x00007ffb8492d000 	C:\windows\SYSTEM32\Secur32.dll
+0x00007ffb85b10000 - 0x00007ffb85b2b000 	C:\windows\SYSTEM32\samcli.dll
+0x00007ffb85b30000 - 0x00007ffb85b5b000 	C:\windows\SYSTEM32\SAMLIB.dll
+0x00007ffb3b9f0000 - 0x00007ffb3bc7b000 	D:\百度网盘\BaiduNetdisk\YunShellExtV164.dll
+0x00007ffb7b040000 - 0x00007ffb7b04d000 	C:\windows\SYSTEM32\atlthunk.dll
+0x00007ffb09010000 - 0x00007ffb09022000 	C:\windows\SYSTEM32\AcSignIcon.dll
+0x00007ffb03a20000 - 0x00007ffb03f8b000 	C:\windows\SYSTEM32\mfc140u.dll
+0x00007ffb82ad0000 - 0x00007ffb82aee000 	C:\windows\SYSTEM32\VCRUNTIME140.dll
+0x00007ffb82b80000 - 0x00007ffb82b8c000 	C:\windows\SYSTEM32\VCRUNTIME140_1.dll
+0x00007ffb72150000 - 0x00007ffb7216a000 	C:\windows\SYSTEM32\windows.staterepositorycore.dll
+0x00007ffb68880000 - 0x00007ffb68995000 	C:\Windows\System32\MrmCoreR.dll
+0x00007ffb6f4e0000 - 0x00007ffb6f7a5000 	C:\Windows\System32\iertutil.dll
+0x00007ffb78910000 - 0x00007ffb78939000 	C:\Windows\System32\srvcli.dll
+0x00007ffb66990000 - 0x00007ffb669d8000 	C:\windows\SYSTEM32\windows.staterepositoryclient.dll
+0x00007ffb66940000 - 0x00007ffb66974000 	C:\Windows\System32\bcp47mrm.dll
+0x00007ffb629c0000 - 0x00007ffb62a73000 	C:\windows\SYSTEM32\TextShaping.dll
+
+VM Arguments:
+jvm_args: -Xms64m -Xmx1g 
+java_command: d:/quartus13.1/altera/ip/altera/fir_compiler/lib/../../common/ip_toolbench/v1.3.0/bin/launcher.jar -devicefamily:Cyclone IV E -projectname:top -projectpath:D:/Quartus13.1/altera/program/My_16QAM/ -lib_dir:d:/quartus13.1/altera/ip/altera/fir_compiler/lib/ -flow_dir:d:/quartus13.1/altera/ip/altera/fir_compiler/lib/../../common/ip_toolbench/v1.3.0/bin -wizard:fir_compiler D:/Quartus13.1/altera/program/My_16QAM/demod_fir.v -n -symbol -p2 -quartus_rootdir:d:/quartus13.1/altera/quartus/
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=d:\quartus13.1\altera\quartus\bin64\;d:\quartus13.1\altera\quartus\bin64\;E:\VMware\bin\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;D:\matlab2024\runtime\win64;D:\matlab2024\bin;D:\matlab\runtime\win64;D:\matlab\bin;D:\matlab\polyspace\bin;D:\Weixin\微信小程序\微信web开发者工具\dll;;D:\git\Git\cmd;D:\python\Scripts\;D:\python\;C:\Users\21503\AppData\Local\Programs\Python\Launcher\;C:\Users\21503\AppData\Local\Microsoft\WindowsApps;D:\VSCODE\Microsoft VS Code\bin;D:\Quartus13.1\altera\modelsim_ase\win32aloem
+USERNAME=21503
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows NT 6.2 Build 9200 
+
+CPU:total 16 (16 cores per cpu, 1 threads per core) family 25 model 117 stepping 2, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, mmxext, lzcnt, sse4a
+
+Memory: 4k page, physical 32830772k(17715628k free), swap 34927924k(17033808k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (19.0-b09) for windows-amd64 JRE (1.6.0_23-b05), built on Nov 13 2010 02:43:42 by "java_re" with MS VC++ 8.0 (VS2005)
+
+time: Tue Mar 10 09:37:37 2026
+elapsed time: 1268 seconds
+
