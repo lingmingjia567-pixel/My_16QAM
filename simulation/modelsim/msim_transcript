@@ -1,0 +1,174 @@
+# Reading D:/Quartus13.1/altera/modelsim_ase/tcl/vsim/pref.tcl 
+# ERROR: No extended dataflow license exists
+# do top_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying D:\Quartus13.1\altera\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied D:\Quartus13.1\altera\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+D:/Quartus13.1/altera/program/My_16QAM {D:/Quartus13.1/altera/program/My_16QAM/demod_fir.vo}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module demod_fir
+# 
+# Top level modules:
+# 	demod_fir
+# vlog -vlog01compat -work work +incdir+D:/Quartus13.1/altera/program/My_16QAM {D:/Quartus13.1/altera/program/My_16QAM/demod_p2s.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module demod_p2s
+# 
+# Top level modules:
+# 	demod_p2s
+# vlog -vlog01compat -work work +incdir+D:/Quartus13.1/altera/program/My_16QAM {D:/Quartus13.1/altera/program/My_16QAM/top.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# vlog -vlog01compat -work work +incdir+D:/Quartus13.1/altera/program/My_16QAM {D:/Quartus13.1/altera/program/My_16QAM/mod_s2p.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mod_s2p
+# 
+# Top level modules:
+# 	mod_s2p
+# vlog -vlog01compat -work work +incdir+D:/Quartus13.1/altera/program/My_16QAM {D:/Quartus13.1/altera/program/My_16QAM/mod_mul.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mod_mul
+# 
+# Top level modules:
+# 	mod_mul
+# vlog -vlog01compat -work work +incdir+D:/Quartus13.1/altera/program/My_16QAM {D:/Quartus13.1/altera/program/My_16QAM/mod_16QAM.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mod_16QAM
+# 
+# Top level modules:
+# 	mod_16QAM
+# vlog -vlog01compat -work work +incdir+D:/Quartus13.1/altera/program/My_16QAM {D:/Quartus13.1/altera/program/My_16QAM/freq_div.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module freq_div
+# 
+# Top level modules:
+# 	freq_div
+# vlog -vlog01compat -work work +incdir+D:/Quartus13.1/altera/program/My_16QAM {D:/Quartus13.1/altera/program/My_16QAM/demod_mul.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module demod_mul
+# 
+# Top level modules:
+# 	demod_mul
+# vlog -vlog01compat -work work +incdir+D:/Quartus13.1/altera/program/My_16QAM {D:/Quartus13.1/altera/program/My_16QAM/demod_dec.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module demod_dec
+# 
+# Top level modules:
+# 	demod_dec
+# vlog -vlog01compat -work work +incdir+D:/Quartus13.1/altera/program/My_16QAM {D:/Quartus13.1/altera/program/My_16QAM/demod_16QAM.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module demod_16QAM
+# 
+# Top level modules:
+# 	demod_16QAM
+# vlog -vlog01compat -work work +incdir+D:/Quartus13.1/altera/program/My_16QAM {D:/Quartus13.1/altera/program/My_16QAM/carrier_generator.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module carrier_generator
+# 
+# Top level modules:
+# 	carrier_generator
+# vlog -vlog01compat -work work +incdir+D:/Quartus13.1/altera/program/My_16QAM {D:/Quartus13.1/altera/program/My_16QAM/sin_generator.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module sin_generator
+# 
+# Top level modules:
+# 	sin_generator
+# vlog -vlog01compat -work work +incdir+D:/Quartus13.1/altera/program/My_16QAM {D:/Quartus13.1/altera/program/My_16QAM/cos_generator.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module cos_generator
+# 
+# Top level modules:
+# 	cos_generator
+# vlog -vlog01compat -work work +incdir+D:/Quartus13.1/altera/program/My_16QAM {D:/Quartus13.1/altera/program/My_16QAM/data_create.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module data_create
+# 
+# Top level modules:
+# 	data_create
+# 
+# vlog -vlog01compat -work work +incdir+D:/Quartus13.1/altera/program/My_16QAM {D:/Quartus13.1/altera/program/My_16QAM/demod_16QAM.vt}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module demod_16QAM_vlg_tst
+# 
+# Top level modules:
+# 	demod_16QAM_vlg_tst
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  demod_16QAM_vlg_tst
+# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps demod_16QAM_vlg_tst 
+# Loading work.demod_16QAM_vlg_tst
+# Loading work.demod_16QAM
+# Loading work.freq_div
+# Loading work.carrier_generator
+# Loading work.sin_generator
+# Loading altera_mf_ver.altsyncram
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# Loading work.cos_generator
+# Loading work.demod_mul
+# Loading work.demod_fir
+# Loading sgate_ver.oper_add
+# Loading lpm_ver.lpm_add_sub
+# Loading sgate_ver.oper_decoder
+# Loading lpm_ver.lpm_decode
+# Loading sgate_ver.oper_less_than
+# Loading sgate_ver.oper_mux
+# Loading sgate_ver.oper_selector
+# Loading altera_mf_ver.scfifo
+# Loading work.demod_dec
+# Loading work.demod_p2s
+# Loading work.mod_16QAM
+# Loading work.data_create
+# Loading work.mod_s2p
+# Loading work.mod_mul
+# ** Warning: (vsim-3017) D:/Quartus13.1/altera/program/My_16QAM/carrier_generator.v(25): [TFMPC] - Too few port connections. Expected 5, found 3.
+# 
+#         Region: /demod_16QAM_vlg_tst/i1/u_carrier/u_sin
+# ** Warning: (vsim-3722) D:/Quartus13.1/altera/program/My_16QAM/carrier_generator.v(25): [TFMPC] - Missing connection for port 'data'.
+# 
+# ** Warning: (vsim-3722) D:/Quartus13.1/altera/program/My_16QAM/carrier_generator.v(25): [TFMPC] - Missing connection for port 'wren'.
+# 
+# ** Warning: (vsim-3017) D:/Quartus13.1/altera/program/My_16QAM/carrier_generator.v(32): [TFMPC] - Too few port connections. Expected 5, found 3.
+# 
+#         Region: /demod_16QAM_vlg_tst/i1/u_carrier/u_cos
+# ** Warning: (vsim-3722) D:/Quartus13.1/altera/program/My_16QAM/carrier_generator.v(32): [TFMPC] - Missing connection for port 'data'.
+# 
+# ** Warning: (vsim-3722) D:/Quartus13.1/altera/program/My_16QAM/carrier_generator.v(32): [TFMPC] - Missing connection for port 'wren'.
+# 
+# ** Warning: (vsim-3017) D:/Quartus13.1/altera/program/My_16QAM/carrier_generator.v(25): [TFMPC] - Too few port connections. Expected 5, found 3.
+# 
+#         Region: /demod_16QAM_vlg_tst/i2/u_carrier/u_sin
+# ** Warning: (vsim-3722) D:/Quartus13.1/altera/program/My_16QAM/carrier_generator.v(25): [TFMPC] - Missing connection for port 'data'.
+# 
+# ** Warning: (vsim-3722) D:/Quartus13.1/altera/program/My_16QAM/carrier_generator.v(25): [TFMPC] - Missing connection for port 'wren'.
+# 
+# ** Warning: (vsim-3017) D:/Quartus13.1/altera/program/My_16QAM/carrier_generator.v(32): [TFMPC] - Too few port connections. Expected 5, found 3.
+# 
+#         Region: /demod_16QAM_vlg_tst/i2/u_carrier/u_cos
+# ** Warning: (vsim-3722) D:/Quartus13.1/altera/program/My_16QAM/carrier_generator.v(32): [TFMPC] - Missing connection for port 'data'.
+# 
+# ** Warning: (vsim-3722) D:/Quartus13.1/altera/program/My_16QAM/carrier_generator.v(32): [TFMPC] - Missing connection for port 'wren'.
+# 
+# ** Warning: Design size of 14 instances exceeds ModelSim ALTERA recommended capacity.
+# This may because you are loading cell libraries which are not recommended with
+# the ModelSim Altera version. Expect performance to be adversely affected.
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 9989 of file "QAM_o.txt". (Current address [9988], address range [0:9987])    : D:/Quartus13.1/altera/program/My_16QAM/data_create.v(18)
+#    Time: 0 ps  Iteration: 0  Instance: /demod_16QAM_vlg_tst/i2/u_data_create
+# Break key hit 
+# Simulation stop requested.

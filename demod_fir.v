@@ -49,7 +49,7 @@ module demod_fir (
 	input		ast_sink_valid;
 	input		ast_source_ready;
 	input	[1:0]	ast_sink_error;
-	output	[23:0]	ast_source_data;
+	output	[19:0]	ast_source_data;
 	output		ast_sink_ready;
 	output		ast_source_valid;
 	output	[1:0]	ast_source_error;
@@ -86,8 +86,8 @@ endmodule
 // Retrieval info:      <PRIVATE name = "filter_rate" value="Single Rate"  type="STRING"  enable="1" />
 // Retrieval info:      <PRIVATE name = "filter_factor" value="2"  type="INTEGER"  enable="0" />
 // Retrieval info:      <PRIVATE name = "coefficient_scaling_type" value="Auto"  type="STRING"  enable="1" />
-// Retrieval info:      <PRIVATE name = "coefficient_scaling_factor" value="10188.358518252684"  type="STRING"  enable="0" />
-// Retrieval info:      <PRIVATE name = "coefficient_bit_width" value="13"  type="INTEGER"  enable="1" />
+// Retrieval info:      <PRIVATE name = "coefficient_scaling_factor" value="3411.4324165882185"  type="STRING"  enable="0" />
+// Retrieval info:      <PRIVATE name = "coefficient_bit_width" value="10"  type="INTEGER"  enable="1" />
 // Retrieval info:      <PRIVATE name = "coefficient_binary_point_position" value="0"  type="INTEGER"  enable="0" />
 // Retrieval info:      <PRIVATE name = "number_of_input_channels" value="1"  type="INTEGER"  enable="1" />
 // Retrieval info:      <PRIVATE name = "input_number_system" value="Signed Binary"  type="STRING"  enable="1" />
@@ -95,8 +95,8 @@ endmodule
 // Retrieval info:      <PRIVATE name = "input_binary_point_position" value="0"  type="INTEGER"  enable="0" />
 // Retrieval info:      <PRIVATE name = "output_bit_width_method" value="Actual Coefficients"  type="STRING"  enable="1" />
 // Retrieval info:      <PRIVATE name = "output_number_system" value="Full Resolution"  type="STRING"  enable="1" />
-// Retrieval info:      <PRIVATE name = "output_bit_width" value="24"  type="INTEGER"  enable="1" />
-// Retrieval info:      <PRIVATE name = "output_bits_right_of_binary_point" value="19"  type="INTEGER"  enable="0" />
+// Retrieval info:      <PRIVATE name = "output_bit_width" value="20"  type="INTEGER"  enable="1" />
+// Retrieval info:      <PRIVATE name = "output_bits_right_of_binary_point" value="16"  type="INTEGER"  enable="0" />
 // Retrieval info:      <PRIVATE name = "output_bits_removed_from_lsb" value="0"  type="INTEGER"  enable="0" />
 // Retrieval info:      <PRIVATE name = "output_lsb_remove_type" value="Truncate"  type="STRING"  enable="1" />
 // Retrieval info:      <PRIVATE name = "output_msb_remove_type" value="Truncate"  type="STRING"  enable="1" />
@@ -114,13 +114,13 @@ endmodule
 // Retrieval info:      <PRIVATE name = "force_non_symmetric_structure" value="0"  type="BOOLEAN"  enable="0" />
 // Retrieval info:      <PRIVATE name = "coefficients_reload" value="0"  type="BOOLEAN"  enable="0" />
 // Retrieval info:      <PRIVATE name = "coefficients_reload_sgl_clock" value="0"  type="BOOLEAN"  enable="1" />
-// Retrieval info:      <PRIVATE name = "max_clocks_to_compute" value="1"  type="INTEGER"  enable="1" />
-// Retrieval info:      <PRIVATE name = "set_1" value="Low Pass Set, Imported, D:\Quartus13.1\altera\program\My_16QAM\Shape_lpf.txt, 0.0010720013, -0.0027031908, -0.0058177346, -0.0069700214, -0.005306136, -8.1568625E-4, 0.0054698284, 0.011575942, 0.015008018, 0.013433033, 0.0054698284, -0.0086171925, -0.02653068, -0.044016816, -0.055462405, -0.054941803, -0.037520047, -5.324843E-4, 0.055462405, 0.12631132, 0.20461492, 0.2807803, 0.3445992, 0.38704622, 0.40192932, 0.38704622, 0.3445992, 0.2807803, 0.20461492, 0.12631132, 0.055462405, -5.324843E-4, -0.037520047, -0.054941803, -0.055462405, -0.044016816, -0.02653068, -0.0086171925, 0.0054698284, 0.013433033, 0.015008018, 0.011575942, 0.0054698284, -8.1568625E-4, -0.005306136, -0.0069700214, -0.0058177346, -0.0027031908, 0.0010720013"  type="STRING"  enable="1" />
+// Retrieval info:      <PRIVATE name = "max_clocks_to_compute" value="4"  type="INTEGER"  enable="1" />
+// Retrieval info:      <PRIVATE name = "set_1" value="Low Pass Set, Imported, D:\Quartus13.1\altera\program\My_16QAM\Shape_lpf.txt, 9.7308314E-4, 0.0050492296, 0.015527598, 0.03533172, 0.06468666, 0.099327035, 0.13086379, 0.14979045, 0.14979045, 0.13086379, 0.099327035, 0.06468666, 0.03533172, 0.015527598, 0.0050492296, 9.7308314E-4"  type="STRING"  enable="1" />
 // Retrieval info:      <PRIVATE name = "number_of_sets" value="1"  type="INTEGER"  enable="1" />
-// Retrieval info:      <PRIVATE name = "output_full_bit_width" value="24"  type="INTEGER"  enable="1" />
-// Retrieval info:      <PRIVATE name = "output_full_bits_right_of_binary_point" value="19"  type="INTEGER"  enable="1" />
+// Retrieval info:      <PRIVATE name = "output_full_bit_width" value="20"  type="INTEGER"  enable="1" />
+// Retrieval info:      <PRIVATE name = "output_full_bits_right_of_binary_point" value="16"  type="INTEGER"  enable="1" />
 // Retrieval info:      <PRIVATE name = "coefficient_reload_bit_width" value="16"  type="INTEGER"  enable="1" />
-// Retrieval info:      <PRIVATE name = "logic_cell" value="2069"  type="INTEGER"  enable="1" />
+// Retrieval info:      <PRIVATE name = "logic_cell" value="679"  type="INTEGER"  enable="1" />
 // Retrieval info:      <PRIVATE name = "m512" value="0"  type="INTEGER"  enable="1" />
 // Retrieval info:      <PRIVATE name = "m4k" value="0"  type="INTEGER"  enable="1" />
 // Retrieval info:      <PRIVATE name = "m144k" value="0"  type="INTEGER"  enable="1" />

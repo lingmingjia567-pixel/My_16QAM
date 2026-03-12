@@ -67,12 +67,19 @@ demod_mul u_demod_mul(
 	);
 
 //i fir
+
 demod_fir demod_fir_i(
 	.clk(clk_500k),        
-   .reset_n(reset_n),                              
+    .reset_n(reset_n),                               
 	.ast_sink_data(mul_i),     
 	.ast_sink_valid(1'b1),    
-	.ast_sink_error(2'b00),                           
+	.ast_sink_error(2'b00), 
+    
+    // 🔴 核心修改：加入下游就绪信号，强行拉高
+	.ast_source_ready(1'b1),  
+    // 🔴 核心修改：把上游就绪输出信号也引出来（悬空即可）
+    .ast_sink_ready(),        
+
 	.ast_source_data(fir_i_temp),  
 	.ast_source_valid(fir_i_vaild),                        
 	.ast_source_error()
@@ -91,15 +98,20 @@ end
 //q fir
 demod_fir demod_fir_q(
 	.clk(clk_500k),        
-   .reset_n(reset_n),                              
+    .reset_n(reset_n),                               
 	.ast_sink_data(mul_q),     
 	.ast_sink_valid(1'b1),    
-	.ast_sink_error(2'b00),                           
+	.ast_sink_error(2'b00),
+    
+    // 🔴 核心修改：加入下游就绪信号，强行拉高
+	.ast_source_ready(1'b1),  
+    // 🔴 核心修改：把上游就绪输出信号也引出来（悬空即可）
+    .ast_sink_ready(), 
+
 	.ast_source_data(fir_q_temp),  
 	.ast_source_valid(fir_q_vaild),                        
 	.ast_source_error()
 );
-
 always @(posedge carrier_clk or negedge reset_n) begin
 	if(!reset_n) begin
 		fir_q <= 20'b0;

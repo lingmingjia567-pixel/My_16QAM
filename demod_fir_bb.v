@@ -40,7 +40,7 @@ module demod_fir (
 	input		ast_sink_valid;
 	input		ast_source_ready;
 	input	[1:0]	ast_sink_error;
-	output	[23:0]	ast_source_data;
+	output	[19:0]	ast_source_data;
 	output		ast_sink_ready;
 	output		ast_source_valid;
 	output	[1:0]	ast_source_error;
