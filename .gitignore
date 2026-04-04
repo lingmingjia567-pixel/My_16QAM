@@ -1,0 +1,31 @@
+﻿# ==========================================
+# Quartus II / FPGA Project Ignore List
+# ==========================================
+
+# Quartus 编译生成的庞大临时数据库
+db/
+incremental_db/
+
+# Quartus 编译报告和中间输出文件
+output_files/
+*.rpt
+*.smsg
+*.summary
+*.done
+*.jdi
+*.pin
+*.qws
+
+# 仿真软件 (ModelSim) 生成的临时编译库
+simulation/modelsim/rtl_work/
+simulation/modelsim/gate_work/
+simulation/modelsim/*.sdo
+simulation/modelsim/*.vo
+simulation/modelsim/*.vho
+Transcript
+*.wlf
+
+# 各种备份和无用缓存文件
+*.bak
+*~
+*.qarlog

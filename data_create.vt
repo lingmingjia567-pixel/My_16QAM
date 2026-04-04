@@ -1,0 +1,34 @@
+`timescale 1 ns/ 1 ns  
+
+module data_create_vlg_tst();
+
+reg clk;
+reg reset_n;
+wire out; 
+
+// 例化模块
+data_create i1 (
+	.clk(clk),
+	.out(out),
+	.reset_n(reset_n)
+);
+
+initial begin
+    // 1. 业界标准：时钟初始状态设为 0
+    clk = 0;       
+    reset_n = 0;   // 初始保持复位
+    
+    // 2. 终极魔法：在 35ns 释放复位！
+    // 为什么是 35ns？请看下面的“时间轴拆解”
+    #20;
+    reset_n = 1;
+
+    // 跑足够长的时间来观察波形
+    #100000;
+    $stop; 
+end
+
+// 产生时钟 (每 10ns 翻转一次，完整周期为 20ns)
+always #10 clk = ~clk;
+
+endmodule
