@@ -1,13 +1,13 @@
 /*
-* 数字信号源 (读取 MATLAB txt 外部数据并串行输出)
+* 数字信号源 (读取 MATLAB txt 外部数据并串行纯同步输出)
 */
 module data_create(clk, reset_n, out);
 input clk, reset_n;
 
-// 🔴 1. 改回 wire，去掉触发器的 1 拍延迟
-output wire out; 
+// 🔴 1. 换回 reg！我们要做真正的同步触发器输出
+output reg out; 
 
-parameter DATA_DEPTH = 9988;
+parameter DATA_DEPTH = 10000;
 reg [3:0] rom_memory [0:DATA_DEPTH-1];
 
 // 行地址计数器 和 比特分配计数器
@@ -18,17 +18,17 @@ initial begin
     $readmemb("QAM_o.txt", rom_memory);
 end
 
-// 🔴 2. 核心魔法：使用 assign 实时连线
-// 意思是：如果 reset_n 是 0（复位中），out 直接强制接地（输出0）；
-// 否则，out 瞬间接通当前的 rom_memory[address][bit_cnt]，零延迟！
-assign out = (!reset_n) ? 1'b0 : rom_memory[address][bit_cnt];
-
-// 3. 时序逻辑里只负责让地址和计数器乖乖按节拍变动，不再管 out
+// 🔴 2. 核心魔法：纯粹的同步状态机，全在上升沿干活！
 always @(posedge clk or negedge reset_n) begin
     if (!reset_n) begin
+        out <= 1'b0;
         address <= 16'd0;
         bit_cnt <= 2'd3;  
     end else begin
+        // 动作A：当时钟上升沿到来时，先把当前指向的数据“吐”到输出端口
+        out <= rom_memory[address][bit_cnt];
+        
+        // 动作B：同时，立刻把计数器拨到下一个位置，给下一次时钟沿做准备
         if (bit_cnt == 2'd0) begin
             bit_cnt <= 2'd3; 
             if (address == DATA_DEPTH - 1) begin

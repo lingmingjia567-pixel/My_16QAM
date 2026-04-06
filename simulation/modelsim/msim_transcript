@@ -131,19 +131,53 @@
 # 
 #           File in use by: 21503  Hostname: LL  ProcessID: 14960
 # 
-#           Attempting to use alternate WLF file "./wlftrgjwyy".
+#           Attempting to use alternate WLF file "./wlfttxqyqh".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlftrgjwyy
+#           Using alternate file: ./wlfttxqyqh
 # 
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-# ** Warning: (vsim-PLI-3407) Too many data words read on line 9989 of file "QAM_o.txt". (Current address [9988], address range [0:9987])    : C:/Users/21503/Desktop/My_16QAM-main/data_create.v(18)
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 10001 of file "QAM_o.txt". (Current address [10000], address range [0:9999])    : C:/Users/21503/Desktop/My_16QAM-main/data_create.v(18)
 #    Time: 0 ps  Iteration: 0  Instance: /top_vlg_tst/i1/mod/u_data_create
+# ========================================
+# Trash time ended. BER calculation STARTED!
+# ========================================
+# Progress -> Total Bits: 1000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 2000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 3000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 4000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 5000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 6000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 7000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 8000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 9000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 10000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 11000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 12000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 13000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 14000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 15000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 16000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 17000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 18000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 19000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 20000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 21000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 22000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 23000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 24000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 25000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 26000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 27000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 28000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 29000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 30000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 31000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 32000 | Errors: 0 | BER: 0.000000e+000
+# Progress -> Total Bits: 33000 | Errors: 0 | BER: 0.000000e+000
 # Break key hit 
 # Simulation stop requested.
-# Simulation Breakpoint: Simulation stop requested.
-# MACRO ./top_run_msim_rtl_verilog.do PAUSED at line 29
