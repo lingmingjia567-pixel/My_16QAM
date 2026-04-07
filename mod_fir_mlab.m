@@ -12,19 +12,19 @@
 %FILTER PARAMETER                                                                                                                       
 %Input Data Type:	Signed
 %Input Data Width:	4
-%FIR Width (Full Calculation Width Before Output Width Adjust) :   16
+%FIR Width (Full Calculation Width Before Output Width Adjust) :   19
 %-----------------------------------------------------------------------------------------------------------
 
 	%MegaWizard Scaled Coefficient Values
 	function  output = mod_fir_mlab_mat (stimulation, output)
-	coef_matrix=[1 -2 -4 -4 -3 -1 3 7 10 9 3 -5 -17 -28 -35 -35 -24 0 35 80 130 178 219 246 255 246 219 178 130 80 35 0 -24 -35 -35 -28 -17 -5 3 9 10 7 3 -1 -3 -4 -4 -2 1 ];
+	coef_matrix=[5 -14 -30 -35 -27 -4 28 59 76 68 28 -44 -135 -224 -282 -280 -191 -3 282 643 1042 1430 1755 1971 2047 1971 1755 1430 1042 643 282 -3 -191 -280 -282 -224 -135 -44 28 68 76 59 28 -4 -27 -35 -30 -14 5 ];
 	INTER_FACTOR  = 1;
 	DECI_FACTOR  = 1; 
 	MSB_RM  = 0;
 	MSB_TYPE  = 0;
 	LSB_RM  = 0;
 	LSB_TYPE  = 0;
-	FIR_WIDTH  = 16;
+	FIR_WIDTH  = 19;
 	OUT_WIDTH  = FIR_WIDTH - MSB_RM - LSB_RM ;
 	DATA_WIDTH = 4;
             

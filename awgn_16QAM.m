@@ -323,19 +323,19 @@ fclose(fid);
 
 
 %将成形滤波器系数写入Shape_lpf.txt文件中
-%滤波系数进行10bit量化
-% 滤波系数进行 9-bit 量化 (最大值 255)
-h_pm9 = round(rrc_filter/max(abs(rrc_filter))*(2^8-1));
+% 将成形滤波器系数写入 Shape_lpf.txt 文件中
+% 滤波系数进行 12-bit 量化 (最大值 2047)
+h_pm12 = round(rrc_filter/max(abs(rrc_filter))*(2^11-1));
+fid = fopen('C:\Users\21503\Desktop\My_16QAM-main\simulation\modelsim\Shape_lpf.txt','w');
 
-fid=fopen('D:\Quartus13.1\altera\program\QamCodeModem\simulation\modelsim\Shape_lpf.txt','w');
-% 用 %d 写入整数变量 h_pm9
-fprintf(fid,'%d\r\n', h_pm9); 
+% 用 %d 写入整数变量 h_pm12
+fprintf(fid,'%d\r\n', h_pm12); 
 fclose(fid);
 
 % ==================== 👇 插入以下代码：滤波器量化对比与分析 👇 ====================
 fprintf('\n--- 📉 滤波器量化评估分析 ---\n');
 % 1. 将 9-bit 整数量化值，反向还原到浮点比例，以便和原滤波器绝对对齐比较
-rrc_quantized_restore = h_pm9 / (2^8-1) * max(abs(rrc_filter));
+rrc_quantized_restore = h_pm12 / (2^11-1) * max(abs(rrc_filter));
 
 % 2. 计算绝对量化误差
 quant_error = rrc_filter - rrc_quantized_restore;
@@ -346,9 +346,9 @@ sqnr_dB = 10 * log10( sum(rrc_filter.^2) / sum(quant_error.^2) );
 fprintf('滤波器系数最大量化误差: %f\n', max(abs(quant_error)));
 fprintf('滤波器量化信噪比 (SQNR): %.2f dB\n', sqnr_dB);
 if sqnr_dB > 40
-    fprintf('结论: SQNR 极高，9-bit 量化精度完全足够，不会是导致解调失败的元凶！\n');
+    fprintf('结论: SQNR 极高，12-bit 量化精度完全足够，不会是导致解调失败的元凶！\n');
 else
-    fprintf('⚠️ 警告: SQNR 偏低，量化误差过大，建议将系数提升至 10-bit 或 12-bit！\n');
+    fprintf('⚠️ 警告: SQNR 偏低，量化误差过大，建议提升量化比特位数！\n');
 end
 fprintf('-----------------------------------------\n\n');
 
@@ -361,7 +361,7 @@ stem(rrc_filter, 'b', 'LineWidth', 1.5, 'MarkerSize', 6, 'DisplayName', '理想�
 hold on;
 stem(rrc_quantized_restore, 'r--', 'LineWidth', 1.5, 'MarkerSize', 4, 'DisplayName', '9-bit量化后还原');
 grid on;
-title(sprintf('RRC成型滤波器：浮点原值 vs 9-bit量化值 (SQNR = %.2f dB)', sqnr_dB), 'FontSize', 12, 'FontWeight', 'bold');
+title(sprintf('RRC成型滤波器：浮点原值 vs 12-bit量化值 (SQNR = %.2f dB)', sqnr_dB), 'FontSize', 12, 'FontWeight', 'bold');
 xlabel('抽头索引 (Tap Index)'); ylabel('幅度');
 legend('Location', 'best');
 

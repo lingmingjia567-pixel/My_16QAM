@@ -91,8 +91,8 @@ always @(posedge carrier_clk or negedge reset_n) begin
 	end
 end
 
-// 【步骤 C】：呼叫你刚刚生成的 RRC 成形滤波器 IP 核 (16位输出)
-wire signed [15:0] fir_out_i, fir_out_q; 
+// 【步骤 C】：呼叫你刚刚生成的 RRC 成形滤波器 IP 核 (19位输出)
+wire signed [18:0] fir_out_i, fir_out_q; // 🔴 改为 19 位
 
 mod_fir u_tx_fir_i (
 	.clk(carrier_clk),
@@ -121,34 +121,37 @@ mod_fir u_tx_fir_q (
 );
 
 // 【步骤 D】：模块化调用高速混频器
-wire signed [23:0] mix_i;
-wire signed [23:0] mix_q;
+wire signed [26:0] mix_i; // 🔴 改为 27 位，接住乘法器的输出
+wire signed [26:0] mix_q; // 🔴 改为 27 位
 
 mod_mul u_mod_mul_i(
 	.clk(carrier_clk),
-	.signal(fir_out_i),
+	.signal(fir_out_i),   // 传入 19 位
 	.carrier(carrier_cos),
-	.out(mix_i)
+	.out(mix_i)           // 传出 27 位
 );
 
 mod_mul u_mod_mul_q(
 	.clk(carrier_clk),
-	.signal(fir_out_q),
+	.signal(fir_out_q),   // 传入 19 位
 	.carrier(carrier_sin),
-	.out(mix_q)
+	.out(mix_q)           // 传出 27 位
 );
 
 // 【步骤 E】：I/Q 合并与黄金截断
-// 因为前面的乘法器消耗了 1 个时钟周期，这里的加法我们也用一个寄存器接住，保证时序稳定
-reg signed [24:0] mod_out_full;
+// 两个 27 位的数相加，为了防止溢出，加法器需要 28 位！
+reg signed [27:0] mod_out_full; // 🔴 改为 28 位
 always @(posedge carrier_clk or negedge reset_n) begin
 	if (!reset_n)
-		mod_out_full <= 25'd0;
+		mod_out_full <= 28'd0;
 	else
 		mod_out_full <= mix_i + mix_q;
 end
 
-// 截取核心动态范围的高 16 位，输出完美波形给下一级
-assign mod_out = mod_out_full[23:8];
+// 🔴 最终的黄金截断：
+// 我们在这里统一进行增益归一化！
+// 原来是取 [23:8]，因为全链路位宽膨胀了 3 位（从16->19），外加加法器进位，
+// 我们只需把截断区间整体向左平移 3 位，取 [26:11] 即可！
+assign mod_out = mod_out_full[26:11];
 
 endmodule

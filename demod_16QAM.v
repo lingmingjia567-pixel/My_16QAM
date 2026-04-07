@@ -1,9 +1,9 @@
 // =========================================================
-// 🚀 接收端总成：纯净 10MHz 链路
+// 🚀 接收端总成：纯净 10MHz 链路 (12-bit 高精度升级版)
 // =========================================================
 module demod_16QAM(carrier_clk, orgin_clk, reset_n, signal, demod_out);
 input carrier_clk, reset_n, orgin_clk;
-input signed [15:0] signal; // 🔴 扩容为 16 位，接住发射端的绝美波形
+input signed [15:0] signal; // 接住发射端传来的绝美 16 位波形
 output demod_out;
 
 wire [3:0] p_data;
@@ -19,8 +19,20 @@ wire fir_q_vaild;
 wire fir_i_vaild;
 reg signed [19:0] fir_i;
 reg signed [19:0] fir_q;
-wire signed [19:0] fir_i_temp;
-wire signed [19:0] fir_q_temp;
+
+// =========================================================
+// 🌟 核心截位手术区：接住膨胀的数据，保护判决器！
+// =========================================================
+
+// 🔴 1. 新增：换用 23 位的大盆，接住接收端 FIR 升级 12-bit 后的输出
+wire signed [22:0] fir_i_temp_23b;
+wire signed [22:0] fir_q_temp_23b;
+
+// 🔴 2. 增益归一化：砍掉低 3 位，将幅度完美等比缩放回原来的 20 位比例！
+// 这样一来，你下游的 demod_dec (判决器) 里的代码和阈值，一行都不需要改！
+wire signed [19:0] fir_i_temp = fir_i_temp_23b[22:3];
+wire signed [19:0] fir_q_temp = fir_q_temp_23b[22:3];
+
 
 assign p_data = {i_data[1], q_data[1], i_data[0], q_data[0]};
 
@@ -44,14 +56,14 @@ demod_mul u_demod_mul(
 // 🔴 核心改造：所有滤波器全部统一使用 10MHz (carrier_clk)！
 // =========================================================
 demod_fir demod_fir_i(
-	.clk(carrier_clk), // 拆除炸弹，换上高铁引擎！
+	.clk(carrier_clk), 
 	.reset_n(reset_n),                               
 	.ast_sink_data(mul_i),     
 	.ast_sink_valid(1'b1),  
 	.ast_sink_error(2'b00), 
 	.ast_source_ready(1'b1),  
 	.ast_sink_ready(),      
-	.ast_source_data(fir_i_temp),  
+	.ast_source_data(fir_i_temp_23b),  // 🔴 3. 修改：接上 23 位的大盆
 	.ast_source_valid(fir_i_vaild),                        
 	.ast_source_error()
 );
@@ -60,18 +72,18 @@ always @(posedge carrier_clk or negedge reset_n) begin
 	if(!reset_n)
 		fir_i <= 20'b0;
 	else if (fir_i_vaild)
-		fir_i <= fir_i_temp;
+		fir_i <= fir_i_temp;  // 🔴 这里接的是已经缩放回 20 位的安全数据
 end
 
 demod_fir demod_fir_q(
-	.clk(carrier_clk), // 同上！
+	.clk(carrier_clk), 
 	.reset_n(reset_n),                               
 	.ast_sink_data(mul_q),     
 	.ast_sink_valid(1'b1),  
 	.ast_sink_error(2'b00),
 	.ast_source_ready(1'b1),  
 	.ast_sink_ready(), 
-	.ast_source_data(fir_q_temp),  
+	.ast_source_data(fir_q_temp_23b),  // 🔴 4. 修改：接上 23 位的大盆
 	.ast_source_valid(fir_q_vaild),                        
 	.ast_source_error()
 );
@@ -80,10 +92,10 @@ always @(posedge carrier_clk or negedge reset_n) begin
 	if(!reset_n)
 		fir_q <= 20'b0;
 	else if (fir_q_vaild)
-		fir_q <= fir_q_temp;
+		fir_q <= fir_q_temp;  // 🔴 这里接的是已经缩放回 20 位的安全数据
 end
 
-// 判决与串并转换
+// 判决与串并转换 (这部分完美继承，不需要任何修改)
 demod_dec demod_dec_i(
 	.fir_data(fir_i), .reset_n(reset_n), .carrier_clk(carrier_clk),
 	.signal_clk(orgin_clk), .signal(i_data)
