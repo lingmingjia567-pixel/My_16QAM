@@ -291,7 +291,6 @@ fprintf(fid, '\r\n');
 end
 end
 
-fprintf(fid, ';');
 fclose(fid);
 fprintf('原始参考比特流已成功写入文件: %s\n', output_file);
 fprintf('写入比特数: %d\n', length(data_bits));
@@ -375,8 +374,45 @@ xlabel('抽头索引 (Tap Index)'); ylabel('误差幅度');
 % ==================== 👆 插入以上代码 👆 ====================
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ====================== 十一、FPGA 查表法：导出纯噪声定点数数据 ============
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+fprintf('\n开始生成供 FPGA 查表的纯噪声数据...\n');
 
+% 1. 提取“纯噪声”实部（用加噪后的信号 减去 原始纯净信号）
+% 注意：要保证 current_SNR 对应的是你想要的 Eb/No！
+noise_real = real(rx_signal_current) - real(tx_signal); 
 
+% 2. 将噪声定点化（16-bit 有符号数，范围 -32768 ~ +32767）
+% 为了和 FPGA 内部的幅度匹配，我们需要一个缩放系数。
+% 假设你的 16QAM 信号在 FPGA 内部的峰值幅度大概占满量程的 1/4 (比如 8192)
+% 我们根据 MATLAB 里的纯净信号峰值来计算这个比例系数：
+scale_factor = 300 / max(abs(real(tx_signal)));
+
+% 将纯噪声乘上系数并四舍五入
+noise_quantized = round(noise_real * scale_factor);
+
+% 3. 极值限幅保护（防止个别高斯白噪声尖峰溢出 16-bit）
+noise_quantized(noise_quantized > 32767) = 32767;
+noise_quantized(noise_quantized < -32768) = -32768;
+
+% 4. 导出为 16-bit 二进制补码格式，供 Verilog 的 $readmemb 读取
+noise_output_file = 'C:\Users\21503\Desktop\My_16QAM-main\simulation\modelsim\Noise_only.txt';
+fid_noise = fopen(noise_output_file, 'w');
+
+for i = 1:length(noise_quantized)
+    val = noise_quantized(i);
+    if val < 0
+        bin_val = dec2bin(val + 2^16, 16); % 负数求补码
+    else
+        bin_val = dec2bin(val, 16);        % 正数直接转
+    end
+    fprintf(fid_noise, '%s\n', bin_val);
+end
+
+fclose(fid_noise);
+fprintf('✅ 纯噪声数据 (16-bit定点数) 已成功写入: %s\n', noise_output_file);
+fprintf('总计生成 %d 个噪声采样点。\n', length(noise_quantized));
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ====================== 辅助函数定义 ======================
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -597,4 +633,7 @@ legend('功率谱', '标称载波频率', 'Location', 'best');
 end
 
 fprintf('\n仿真完成！\n');
+
+
+
 

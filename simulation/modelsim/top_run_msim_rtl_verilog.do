@@ -17,6 +17,7 @@ vlog -vlog01compat -work work +incdir+C:/Users/21503/Desktop/My_16QAM-main {C:/U
 vlog -vlog01compat -work work +incdir+C:/Users/21503/Desktop/My_16QAM-main {C:/Users/21503/Desktop/My_16QAM-main/demod_dec.v}
 vlog -vlog01compat -work work +incdir+C:/Users/21503/Desktop/My_16QAM-main {C:/Users/21503/Desktop/My_16QAM-main/demod_16QAM.v}
 vlog -vlog01compat -work work +incdir+C:/Users/21503/Desktop/My_16QAM-main {C:/Users/21503/Desktop/My_16QAM-main/carrier_generator.v}
+vlog -vlog01compat -work work +incdir+C:/Users/21503/Desktop/My_16QAM-main {C:/Users/21503/Desktop/My_16QAM-main/awgn_channel.v}
 vlog -vlog01compat -work work +incdir+C:/Users/21503/Desktop/My_16QAM-main {C:/Users/21503/Desktop/My_16QAM-main/data_create.v}
 
 vlog -vlog01compat -work work +incdir+C:/Users/21503/Desktop/My_16QAM-main {C:/Users/21503/Desktop/My_16QAM-main/top.vt}

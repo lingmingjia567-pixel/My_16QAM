@@ -7,7 +7,7 @@ input clk, reset_n;
 // 🔴 1. 换回 reg！我们要做真正的同步触发器输出
 output reg out; 
 
-parameter DATA_DEPTH = 10000;
+parameter DATA_DEPTH = 50000;
 reg [3:0] rom_memory [0:DATA_DEPTH-1];
 
 // 行地址计数器 和 比特分配计数器
@@ -15,7 +15,7 @@ reg [15:0] address;
 reg [1:0] bit_cnt; 
 
 initial begin
-    $readmemb("QAM_o.txt", rom_memory);
+   $readmemb("C:/Users/21503/Desktop/My_16QAM-main/simulation/modelsim/QAM_o.txt", rom_memory);
 end
 
 // 🔴 2. 核心魔法：纯粹的同步状态机，全在上升沿干活！
