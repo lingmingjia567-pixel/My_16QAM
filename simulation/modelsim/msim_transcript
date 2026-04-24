@@ -23,6 +23,12 @@
 # 
 # Top level modules:
 # 	mod_fir
+# vlog -vlog01compat -work work +incdir+C:/Users/21503/Desktop/My_16QAM-main {C:/Users/21503/Desktop/My_16QAM-main/my_nco_10m.vo}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module my_nco_10m
+# 
+# Top level modules:
+# 	my_nco_10m
 # vlog -vlog01compat -work work +incdir+C:/Users/21503/Desktop/My_16QAM-main {C:/Users/21503/Desktop/My_16QAM-main/demod_p2s.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module demod_p2s
@@ -89,6 +95,42 @@
 # 
 # Top level modules:
 # 	awgn_channel
+# vlog -vlog01compat -work work +incdir+C:/Users/21503/Desktop/My_16QAM-main {C:/Users/21503/Desktop/My_16QAM-main/mod_dd_ped.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mod_dd_ped
+# 
+# Top level modules:
+# 	mod_dd_ped
+# vlog -vlog01compat -work work +incdir+C:/Users/21503/Desktop/My_16QAM-main {C:/Users/21503/Desktop/My_16QAM-main/mod_loop_filter.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mod_loop_filter
+# 
+# Top level modules:
+# 	mod_loop_filter
+# vlog -vlog01compat -work work +incdir+C:/Users/21503/Desktop/My_16QAM-main {C:/Users/21503/Desktop/My_16QAM-main/mod_carrier_sync.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mod_carrier_sync
+# 
+# Top level modules:
+# 	mod_carrier_sync
+# vlog -vlog01compat -work work +incdir+C:/Users/21503/Desktop/My_16QAM-main {C:/Users/21503/Desktop/My_16QAM-main/mod_gardner_ted_8x.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mod_gardner_ted_8x
+# 
+# Top level modules:
+# 	mod_gardner_ted_8x
+# vlog -vlog01compat -work work +incdir+C:/Users/21503/Desktop/My_16QAM-main {C:/Users/21503/Desktop/My_16QAM-main/mod_timing_filter.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mod_timing_filter
+# 
+# Top level modules:
+# 	mod_timing_filter
+# vlog -vlog01compat -work work +incdir+C:/Users/21503/Desktop/My_16QAM-main {C:/Users/21503/Desktop/My_16QAM-main/mod_timing_nco.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mod_timing_nco
+# 
+# Top level modules:
+# 	mod_timing_nco
 # vlog -vlog01compat -work work +incdir+C:/Users/21503/Desktop/My_16QAM-main {C:/Users/21503/Desktop/My_16QAM-main/data_create.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module data_create
@@ -125,11 +167,27 @@
 # Loading work.mod_mul
 # Loading work.awgn_channel
 # Loading work.demod_16QAM
+# Loading work.mod_carrier_sync
+# Loading work.mod_dd_ped
+# Loading work.mod_loop_filter
+# Loading work.my_nco_10m
+# Loading altera_mf_ver.altmult_add
+# Loading altera_mf_ver.altsyncram
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# Loading lpm_ver.lpm_counter
 # Loading work.demod_mul
 # Loading work.demod_fir
+# Loading work.mod_gardner_ted_8x
+# Loading work.mod_timing_filter
+# Loading work.mod_timing_nco
 # Loading work.demod_dec
 # Loading work.demod_p2s
-# ** Warning: Design size of 15 instances exceeds ModelSim ALTERA recommended capacity.
+# ** Warning: (vsim-3017) C:/Users/21503/Desktop/My_16QAM-main/my_nco_10m.vo(1880): [TFMPC] - Too few port connections. Expected 15, found 14.
+# 
+#         Region: /top_vlg_tst/i1/demod/u_carrier_sync/u_nco/nllOi
+# ** Warning: (vsim-3722) C:/Users/21503/Desktop/My_16QAM-main/my_nco_10m.vo(1880): [TFMPC] - Missing connection for port 'eq'.
+# 
+# ** Warning: Design size of 22 instances exceeds ModelSim ALTERA recommended capacity.
 # This may because you are loading cell libraries which are not recommended with
 # the ModelSim Altera version. Expect performance to be adversely affected.
 # 
@@ -138,1043 +196,40 @@
 # 
 #           File in use by: 21503  Hostname: LL  ProcessID: 14960
 # 
-#           Attempting to use alternate WLF file "./wlft7fx93e".
+#           Attempting to use alternate WLF file "./wlftmdrf7s".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlft7fx93e
+#           Using alternate file: ./wlftmdrf7s
 # 
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-# ========================================
-# Trash time ended. BER calculation STARTED!
-# ========================================
-# Error! Time: 176000000 | Expected: 1 | Got: 0
-# Error! Time: 1096000000 | Expected: 0 | Got: 1
-# Error! Time: 1194000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 1000 | Errors: 3 | BER: 3.000000e-003
-# Error! Time: 2448000000 | Expected: 0 | Got: 1
-# Error! Time: 2562000000 | Expected: 0 | Got: 1
-# Error! Time: 2594000000 | Expected: 1 | Got: 0
-# Error! Time: 2832000000 | Expected: 0 | Got: 1
-# Error! Time: 3154000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 2000 | Errors: 8 | BER: 4.000000e-003
-# Progress -> Total Bits: 3000 | Errors: 8 | BER: 2.666667e-003
-# Error! Time: 7920000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 4000 | Errors: 9 | BER: 2.250000e-003
-# Error! Time: 8402000000 | Expected: 0 | Got: 1
-# Error! Time: 9362000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 5000 | Errors: 11 | BER: 2.200000e-003
-# Error! Time: 10194000000 | Expected: 0 | Got: 1
-# Error! Time: 10608000000 | Expected: 0 | Got: 1
-# Error! Time: 11008000000 | Expected: 0 | Got: 1
-# Error! Time: 11394000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 6000 | Errors: 15 | BER: 2.500000e-003
-# Error! Time: 12242000000 | Expected: 0 | Got: 1
-# Error! Time: 12696000000 | Expected: 0 | Got: 1
-# Error! Time: 12714000000 | Expected: 0 | Got: 1
-# Error! Time: 13304000000 | Expected: 0 | Got: 1
-# Error! Time: 13456000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 7000 | Errors: 20 | BER: 2.857143e-003
-# Error! Time: 14312000000 | Expected: 0 | Got: 1
-# Error! Time: 14754000000 | Expected: 0 | Got: 1
-# Error! Time: 15114000000 | Expected: 0 | Got: 1
-# Error! Time: 15440000000 | Expected: 0 | Got: 1
-# Error! Time: 15554000000 | Expected: 0 | Got: 1
-# Error! Time: 15706000000 | Expected: 0 | Got: 1
-# Error! Time: 16042000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 8000 | Errors: 27 | BER: 3.375000e-003
-# Error! Time: 17034000000 | Expected: 0 | Got: 1
-# Error! Time: 17138000000 | Expected: 0 | Got: 1
-# Error! Time: 17344000000 | Expected: 0 | Got: 1
-# Error! Time: 17586000000 | Expected: 0 | Got: 1
-# Error! Time: 17736000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 9000 | Errors: 32 | BER: 3.555556e-003
-# Error! Time: 18810000000 | Expected: 0 | Got: 1
-# Error! Time: 19464000000 | Expected: 0 | Got: 1
-# Error! Time: 19696000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 10000 | Errors: 35 | BER: 3.500000e-003
-# Error! Time: 20152000000 | Expected: 0 | Got: 1
-# Error! Time: 21040000000 | Expected: 0 | Got: 1
-# Error! Time: 21280000000 | Expected: 0 | Got: 1
-# Error! Time: 21626000000 | Expected: 0 | Got: 1
-# Error! Time: 21714000000 | Expected: 0 | Got: 1
-# Error! Time: 21872000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 11000 | Errors: 41 | BER: 3.727273e-003
-# Error! Time: 22128000000 | Expected: 0 | Got: 1
-# Error! Time: 22882000000 | Expected: 0 | Got: 1
-# Error! Time: 22952000000 | Expected: 0 | Got: 1
-# Error! Time: 23136000000 | Expected: 0 | Got: 1
-# Error! Time: 23144000000 | Expected: 0 | Got: 1
-# Error! Time: 23402000000 | Expected: 0 | Got: 1
-# Error! Time: 23616000000 | Expected: 0 | Got: 1
-# Error! Time: 23840000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 12000 | Errors: 49 | BER: 4.083333e-003
-# Error! Time: 25186000000 | Expected: 0 | Got: 1
-# Error! Time: 25578000000 | Expected: 0 | Got: 1
-# Error! Time: 26088000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 13000 | Errors: 52 | BER: 4.000000e-003
-# Error! Time: 27538000000 | Expected: 0 | Got: 1
-# Error! Time: 28104000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 14000 | Errors: 54 | BER: 3.857143e-003
-# Error! Time: 28786000000 | Expected: 0 | Got: 1
-# Error! Time: 28928000000 | Expected: 0 | Got: 1
-# Error! Time: 29344000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 15000 | Errors: 57 | BER: 3.800000e-003
-# Error! Time: 30120000000 | Expected: 0 | Got: 1
-# Error! Time: 30600000000 | Expected: 0 | Got: 1
-# Error! Time: 30712000000 | Expected: 0 | Got: 1
-# Error! Time: 31178000000 | Expected: 0 | Got: 1
-# Error! Time: 31490000000 | Expected: 0 | Got: 1
-# Error! Time: 31776000000 | Expected: 0 | Got: 1
-# Error! Time: 31858000000 | Expected: 0 | Got: 1
-# Error! Time: 31906000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 16000 | Errors: 65 | BER: 4.062500e-003
-# Progress -> Total Bits: 17000 | Errors: 65 | BER: 3.823529e-003
-# Error! Time: 34632000000 | Expected: 0 | Got: 1
-# Error! Time: 35498000000 | Expected: 0 | Got: 1
-# Error! Time: 35530000000 | Expected: 0 | Got: 1
-# Error! Time: 35874000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 18000 | Errors: 69 | BER: 3.833333e-003
-# Error! Time: 36210000000 | Expected: 0 | Got: 1
-# Error! Time: 37744000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 19000 | Errors: 71 | BER: 3.736842e-003
-# Error! Time: 38128000000 | Expected: 0 | Got: 1
-# Error! Time: 38202000000 | Expected: 0 | Got: 1
-# Error! Time: 39058000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 20000 | Errors: 74 | BER: 3.700000e-003
-# Error! Time: 40888000000 | Expected: 0 | Got: 1
-# Error! Time: 40920000000 | Expected: 0 | Got: 1
-# Error! Time: 41680000000 | Expected: 0 | Got: 1
-# Error! Time: 41912000000 | Expected: 0 | Got: 1
-# Error! Time: 42080000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 21000 | Errors: 79 | BER: 3.761905e-003
-# Error! Time: 43802000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 22000 | Errors: 80 | BER: 3.636364e-003
-# Error! Time: 44232000000 | Expected: 0 | Got: 1
-# Error! Time: 44344000000 | Expected: 0 | Got: 1
-# Error! Time: 44352000000 | Expected: 0 | Got: 1
-# Error! Time: 44456000000 | Expected: 0 | Got: 1
-# Error! Time: 45154000000 | Expected: 0 | Got: 1
-# Error! Time: 45266000000 | Expected: 0 | Got: 1
-# Error! Time: 45954000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 23000 | Errors: 87 | BER: 3.782609e-003
-# Error! Time: 46552000000 | Expected: 0 | Got: 1
-# Error! Time: 47120000000 | Expected: 0 | Got: 1
-# Error! Time: 47200000000 | Expected: 0 | Got: 1
-# Error! Time: 47978000000 | Expected: 0 | Got: 1
-# Error! Time: 48098000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 24000 | Errors: 92 | BER: 3.833333e-003
-# Error! Time: 48632000000 | Expected: 0 | Got: 1
-# Error! Time: 48960000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 25000 | Errors: 94 | BER: 3.760000e-003
-# Error! Time: 50834000000 | Expected: 0 | Got: 1
-# Error! Time: 50922000000 | Expected: 0 | Got: 1
-# Error! Time: 51120000000 | Expected: 0 | Got: 1
-# Error! Time: 51376000000 | Expected: 0 | Got: 1
-# Error! Time: 51546000000 | Expected: 0 | Got: 1
-# Error! Time: 51770000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 26000 | Errors: 100 | BER: 3.846154e-003
-# Error! Time: 52322000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 27000 | Errors: 101 | BER: 3.740741e-003
-# Error! Time: 54512000000 | Expected: 0 | Got: 1
-# Error! Time: 54736000000 | Expected: 0 | Got: 1
-# Error! Time: 54760000000 | Expected: 0 | Got: 1
-# Error! Time: 54778000000 | Expected: 0 | Got: 1
-# Error! Time: 54810000000 | Expected: 0 | Got: 1
-# Error! Time: 55034000000 | Expected: 0 | Got: 1
-# Error! Time: 55368000000 | Expected: 0 | Got: 1
-# Error! Time: 56072000000 | Expected: 0 | Got: 1
-# Error! Time: 56104000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 28000 | Errors: 110 | BER: 3.928571e-003
-# Error! Time: 56722000000 | Expected: 0 | Got: 1
-# Error! Time: 57010000000 | Expected: 0 | Got: 1
-# Error! Time: 57186000000 | Expected: 0 | Got: 1
-# Error! Time: 57896000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 29000 | Errors: 114 | BER: 3.931034e-003
-# Error! Time: 58386000000 | Expected: 0 | Got: 1
-# Error! Time: 59754000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 30000 | Errors: 116 | BER: 3.866667e-003
-# Error! Time: 60802000000 | Expected: 0 | Got: 1
-# Error! Time: 60818000000 | Expected: 0 | Got: 1
-# Error! Time: 61712000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 31000 | Errors: 119 | BER: 3.838710e-003
-# Error! Time: 62226000000 | Expected: 0 | Got: 1
-# Error! Time: 62512000000 | Expected: 0 | Got: 1
-# Error! Time: 63080000000 | Expected: 0 | Got: 1
-# Error! Time: 63088000000 | Expected: 0 | Got: 1
-# Error! Time: 63226000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 32000 | Errors: 124 | BER: 3.875000e-003
-# Error! Time: 64330000000 | Expected: 0 | Got: 1
-# Error! Time: 64336000000 | Expected: 0 | Got: 1
-# Error! Time: 64498000000 | Expected: 0 | Got: 1
-# Error! Time: 64584000000 | Expected: 0 | Got: 1
-# Error! Time: 65272000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 33000 | Errors: 129 | BER: 3.909091e-003
-# Error! Time: 66464000000 | Expected: 0 | Got: 1
-# Error! Time: 66592000000 | Expected: 0 | Got: 1
-# Error! Time: 66922000000 | Expected: 0 | Got: 1
-# Error! Time: 67512000000 | Expected: 0 | Got: 1
-# Error! Time: 67850000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 34000 | Errors: 134 | BER: 3.941176e-003
-# Error! Time: 68672000000 | Expected: 0 | Got: 1
-# Error! Time: 68760000000 | Expected: 0 | Got: 1
-# Error! Time: 68858000000 | Expected: 0 | Got: 1
-# Error! Time: 69360000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 35000 | Errors: 138 | BER: 3.942857e-003
-# Error! Time: 70248000000 | Expected: 0 | Got: 1
-# Error! Time: 71176000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 36000 | Errors: 140 | BER: 3.888889e-003
-# Error! Time: 74034000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 37000 | Errors: 141 | BER: 3.810811e-003
-# Error! Time: 75112000000 | Expected: 0 | Got: 1
-# Error! Time: 75264000000 | Expected: 0 | Got: 1
-# Error! Time: 75402000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 38000 | Errors: 144 | BER: 3.789474e-003
-# Error! Time: 76882000000 | Expected: 0 | Got: 1
-# Error! Time: 77488000000 | Expected: 0 | Got: 1
-# Error! Time: 77546000000 | Expected: 0 | Got: 1
-# Error! Time: 77584000000 | Expected: 0 | Got: 1
-# Error! Time: 78010000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 39000 | Errors: 149 | BER: 3.820513e-003
-# Error! Time: 78386000000 | Expected: 0 | Got: 1
-# Error! Time: 78930000000 | Expected: 0 | Got: 1
-# Error! Time: 79010000000 | Expected: 0 | Got: 1
-# Error! Time: 79026000000 | Expected: 0 | Got: 1
-# Error! Time: 79354000000 | Expected: 0 | Got: 1
-# Error! Time: 79402000000 | Expected: 0 | Got: 1
-# Error! Time: 79984000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 40000 | Errors: 156 | BER: 3.900000e-003
-# Error! Time: 80360000000 | Expected: 0 | Got: 1
-# Error! Time: 81000000000 | Expected: 0 | Got: 1
-# Error! Time: 81594000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 41000 | Errors: 159 | BER: 3.878049e-003
-# Error! Time: 82288000000 | Expected: 0 | Got: 1
-# Error! Time: 82922000000 | Expected: 0 | Got: 1
-# Error! Time: 82930000000 | Expected: 0 | Got: 1
-# Error! Time: 83210000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 42000 | Errors: 163 | BER: 3.880952e-003
-# Error! Time: 84154000000 | Expected: 0 | Got: 1
-# Error! Time: 84354000000 | Expected: 0 | Got: 1
-# Error! Time: 84552000000 | Expected: 0 | Got: 1
-# Error! Time: 84752000000 | Expected: 0 | Got: 1
-# Error! Time: 85098000000 | Expected: 0 | Got: 1
-# Error! Time: 85946000000 | Expected: 0 | Got: 1
-# Error! Time: 86016000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 43000 | Errors: 170 | BER: 3.953488e-003
-# Error! Time: 86194000000 | Expected: 0 | Got: 1
-# Error! Time: 86208000000 | Expected: 0 | Got: 1
-# Error! Time: 86618000000 | Expected: 0 | Got: 1
-# Error! Time: 86818000000 | Expected: 1 | Got: 0
-# Error! Time: 86938000000 | Expected: 0 | Got: 1
-# Error! Time: 87400000000 | Expected: 0 | Got: 1
-# Error! Time: 87826000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 44000 | Errors: 177 | BER: 4.022727e-003
-# Error! Time: 88448000000 | Expected: 0 | Got: 1
-# Error! Time: 89416000000 | Expected: 0 | Got: 1
-# Error! Time: 89592000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 45000 | Errors: 180 | BER: 4.000000e-003
-# Error! Time: 90224000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 46000 | Errors: 181 | BER: 3.934783e-003
-# Error! Time: 92378000000 | Expected: 0 | Got: 1
-# Error! Time: 92432000000 | Expected: 0 | Got: 1
-# Error! Time: 93208000000 | Expected: 0 | Got: 1
-# Error! Time: 93586000000 | Expected: 0 | Got: 1
-# Error! Time: 93984000000 | Expected: 0 | Got: 1
-# Error! Time: 93992000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 47000 | Errors: 187 | BER: 3.978723e-003
-# Error! Time: 94256000000 | Expected: 0 | Got: 1
-# Error! Time: 95338000000 | Expected: 0 | Got: 1
-# Error! Time: 95882000000 | Expected: 0 | Got: 1
-# Error! Time: 95898000000 | Expected: 0 | Got: 1
-# Error! Time: 95930000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 48000 | Errors: 192 | BER: 4.000000e-003
-# Error! Time: 96200000000 | Expected: 0 | Got: 1
-# Error! Time: 96378000000 | Expected: 0 | Got: 1
-# Error! Time: 96592000000 | Expected: 0 | Got: 1
-# Error! Time: 97008000000 | Expected: 0 | Got: 1
-# Error! Time: 97360000000 | Expected: 0 | Got: 1
-# Error! Time: 97904000000 | Expected: 0 | Got: 1
-# Error! Time: 98064000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 49000 | Errors: 199 | BER: 4.061224e-003
-# Error! Time: 98490000000 | Expected: 0 | Got: 1
-# Error! Time: 99432000000 | Expected: 0 | Got: 1
-# Error! Time: 99656000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 50000 | Errors: 202 | BER: 4.040000e-003
-# Error! Time: 100400000000 | Expected: 0 | Got: 1
-# Error! Time: 101016000000 | Expected: 0 | Got: 1
-# Error! Time: 101080000000 | Expected: 0 | Got: 1
-# Error! Time: 102050000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 51000 | Errors: 206 | BER: 4.039216e-003
-# Error! Time: 102480000000 | Expected: 0 | Got: 1
-# Error! Time: 102512000000 | Expected: 0 | Got: 1
-# Error! Time: 102778000000 | Expected: 0 | Got: 1
-# Error! Time: 102840000000 | Expected: 0 | Got: 1
-# Error! Time: 102992000000 | Expected: 0 | Got: 1
-# Error! Time: 103584000000 | Expected: 0 | Got: 1
-# Error! Time: 103992000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 52000 | Errors: 213 | BER: 4.096154e-003
-# Error! Time: 104362000000 | Expected: 0 | Got: 1
-# Error! Time: 104450000000 | Expected: 0 | Got: 1
-# Error! Time: 104504000000 | Expected: 0 | Got: 1
-# Error! Time: 104784000000 | Expected: 0 | Got: 1
-# Error! Time: 105136000000 | Expected: 0 | Got: 1
-# Error! Time: 105248000000 | Expected: 0 | Got: 1
-# Error! Time: 105824000000 | Expected: 0 | Got: 1
-# Error! Time: 105880000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 53000 | Errors: 221 | BER: 4.169811e-003
-# Error! Time: 107442000000 | Expected: 0 | Got: 1
-# Error! Time: 107650000000 | Expected: 0 | Got: 1
-# Error! Time: 107888000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 54000 | Errors: 224 | BER: 4.148148e-003
-# Error! Time: 108144000000 | Expected: 0 | Got: 1
-# Error! Time: 108368000000 | Expected: 0 | Got: 1
-# Error! Time: 108394000000 | Expected: 0 | Got: 1
-# Error! Time: 109018000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 55000 | Errors: 228 | BER: 4.145455e-003
-# Error! Time: 110274000000 | Expected: 0 | Got: 1
-# Error! Time: 110392000000 | Expected: 0 | Got: 1
-# Error! Time: 110418000000 | Expected: 0 | Got: 1
-# Error! Time: 110480000000 | Expected: 0 | Got: 1
-# Error! Time: 110850000000 | Expected: 0 | Got: 1
-# Error! Time: 111090000000 | Expected: 0 | Got: 1
-# Error! Time: 111106000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 56000 | Errors: 235 | BER: 4.196429e-003
-# Error! Time: 113184000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 57000 | Errors: 236 | BER: 4.140351e-003
-# Error! Time: 114226000000 | Expected: 0 | Got: 1
-# Error! Time: 114376000000 | Expected: 0 | Got: 1
-# Error! Time: 114680000000 | Expected: 0 | Got: 1
-# Error! Time: 115016000000 | Expected: 0 | Got: 1
-# Error! Time: 115538000000 | Expected: 1 | Got: 0
-# Error! Time: 115938000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 58000 | Errors: 242 | BER: 4.172414e-003
-# Error! Time: 116216000000 | Expected: 0 | Got: 1
-# Error! Time: 116296000000 | Expected: 0 | Got: 1
-# Error! Time: 117530000000 | Expected: 0 | Got: 1
-# Error! Time: 117872000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 59000 | Errors: 246 | BER: 4.169492e-003
-# Error! Time: 119264000000 | Expected: 0 | Got: 1
-# Error! Time: 119752000000 | Expected: 0 | Got: 1
-# Error! Time: 119864000000 | Expected: 0 | Got: 1
-# Error! Time: 120072000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 60000 | Errors: 250 | BER: 4.166667e-003
-# Error! Time: 120306000000 | Expected: 0 | Got: 1
-# Error! Time: 120920000000 | Expected: 0 | Got: 1
-# Error! Time: 121888000000 | Expected: 0 | Got: 1
-# Error! Time: 121928000000 | Expected: 0 | Got: 1
-# Error! Time: 121960000000 | Expected: 0 | Got: 1
-# Error! Time: 122096000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 61000 | Errors: 256 | BER: 4.196721e-003
-# Error! Time: 122488000000 | Expected: 0 | Got: 1
-# Error! Time: 122522000000 | Expected: 0 | Got: 1
-# Error! Time: 122944000000 | Expected: 0 | Got: 1
-# Error! Time: 123272000000 | Expected: 0 | Got: 1
-# Error! Time: 123280000000 | Expected: 0 | Got: 1
-# Error! Time: 123368000000 | Expected: 0 | Got: 1
-# Error! Time: 123930000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 62000 | Errors: 263 | BER: 4.241935e-003
-# Error! Time: 124146000000 | Expected: 0 | Got: 1
-# Error! Time: 124202000000 | Expected: 0 | Got: 1
-# Error! Time: 124680000000 | Expected: 0 | Got: 1
-# Error! Time: 125368000000 | Expected: 0 | Got: 1
-# Error! Time: 125514000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 63000 | Errors: 268 | BER: 4.253968e-003
-# Error! Time: 126528000000 | Expected: 0 | Got: 1
-# Error! Time: 126674000000 | Expected: 0 | Got: 1
-# Error! Time: 126824000000 | Expected: 0 | Got: 1
-# Error! Time: 126866000000 | Expected: 0 | Got: 1
-# Error! Time: 127226000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 64000 | Errors: 273 | BER: 4.265625e-003
-# Error! Time: 129242000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 65000 | Errors: 274 | BER: 4.215385e-003
-# Error! Time: 130312000000 | Expected: 0 | Got: 1
-# Error! Time: 130352000000 | Expected: 0 | Got: 1
-# Error! Time: 130802000000 | Expected: 0 | Got: 1
-# Error! Time: 131530000000 | Expected: 0 | Got: 1
-# Error! Time: 132002000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 66000 | Errors: 279 | BER: 4.227273e-003
-# Error! Time: 132218000000 | Expected: 0 | Got: 1
-# Error! Time: 133426000000 | Expected: 0 | Got: 1
-# Error! Time: 133626000000 | Expected: 0 | Got: 1
-# Error! Time: 133784000000 | Expected: 0 | Got: 1
-# Error! Time: 133792000000 | Expected: 0 | Got: 1
-# Error! Time: 133832000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 67000 | Errors: 285 | BER: 4.253731e-003
-# Error! Time: 134186000000 | Expected: 0 | Got: 1
-# Error! Time: 134266000000 | Expected: 0 | Got: 1
-# Error! Time: 134536000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 68000 | Errors: 288 | BER: 4.235294e-003
-# Error! Time: 136392000000 | Expected: 0 | Got: 1
-# Error! Time: 136704000000 | Expected: 0 | Got: 1
-# Error! Time: 136754000000 | Expected: 0 | Got: 1
-# Error! Time: 136994000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 69000 | Errors: 292 | BER: 4.231884e-003
-# Error! Time: 138274000000 | Expected: 0 | Got: 1
-# Error! Time: 138832000000 | Expected: 0 | Got: 1
-# Error! Time: 139258000000 | Expected: 0 | Got: 1
-# Error! Time: 139808000000 | Expected: 0 | Got: 1
-# Error! Time: 140016000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 70000 | Errors: 297 | BER: 4.242857e-003
-# Error! Time: 140282000000 | Expected: 0 | Got: 1
-# Error! Time: 140368000000 | Expected: 0 | Got: 1
-# Error! Time: 140376000000 | Expected: 0 | Got: 1
-# Error! Time: 140712000000 | Expected: 0 | Got: 1
-# Error! Time: 141954000000 | Expected: 0 | Got: 1
-# Error! Time: 142056000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 71000 | Errors: 303 | BER: 4.267606e-003
-# Error! Time: 142906000000 | Expected: 0 | Got: 1
-# Error! Time: 142920000000 | Expected: 0 | Got: 1
-# Error! Time: 143608000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 72000 | Errors: 306 | BER: 4.250000e-003
-# Error! Time: 144130000000 | Expected: 0 | Got: 1
-# Error! Time: 144474000000 | Expected: 0 | Got: 1
-# Error! Time: 145170000000 | Expected: 0 | Got: 1
-# Error! Time: 145408000000 | Expected: 0 | Got: 1
-# Error! Time: 145674000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 73000 | Errors: 311 | BER: 4.260274e-003
-# Error! Time: 146448000000 | Expected: 0 | Got: 1
-# Error! Time: 146712000000 | Expected: 0 | Got: 1
-# Error! Time: 147280000000 | Expected: 0 | Got: 1
-# Error! Time: 147816000000 | Expected: 0 | Got: 1
-# Error! Time: 147824000000 | Expected: 0 | Got: 1
-# Error! Time: 148042000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 74000 | Errors: 317 | BER: 4.283784e-003
-# Error! Time: 148672000000 | Expected: 0 | Got: 1
-# Error! Time: 149282000000 | Expected: 0 | Got: 1
-# Error! Time: 149378000000 | Expected: 0 | Got: 1
-# Error! Time: 149536000000 | Expected: 0 | Got: 1
-# Error! Time: 150048000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 75000 | Errors: 322 | BER: 4.293333e-003
-# Error! Time: 150130000000 | Expected: 0 | Got: 1
-# Error! Time: 150146000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 76000 | Errors: 324 | BER: 4.263158e-003
-# Error! Time: 152402000000 | Expected: 0 | Got: 1
-# Error! Time: 152834000000 | Expected: 0 | Got: 1
-# Error! Time: 153520000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 77000 | Errors: 327 | BER: 4.246753e-003
-# Error! Time: 154482000000 | Expected: 0 | Got: 1
-# Error! Time: 155168000000 | Expected: 0 | Got: 1
-# Error! Time: 155184000000 | Expected: 0 | Got: 1
-# Error! Time: 155992000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 78000 | Errors: 331 | BER: 4.243590e-003
-# Error! Time: 157848000000 | Expected: 0 | Got: 1
-# Error! Time: 158040000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 79000 | Errors: 333 | BER: 4.215190e-003
-# Error! Time: 158186000000 | Expected: 0 | Got: 1
-# Error! Time: 158194000000 | Expected: 0 | Got: 1
-# Error! Time: 158712000000 | Expected: 0 | Got: 1
-# Error! Time: 159026000000 | Expected: 0 | Got: 1
-# Error! Time: 159112000000 | Expected: 0 | Got: 1
-# Error! Time: 159186000000 | Expected: 0 | Got: 1
-# Error! Time: 159816000000 | Expected: 0 | Got: 1
-# Error! Time: 159968000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 80000 | Errors: 341 | BER: 4.262500e-003
-# Error! Time: 161082000000 | Expected: 0 | Got: 1
-# Error! Time: 161184000000 | Expected: 0 | Got: 1
-# Error! Time: 161778000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 81000 | Errors: 344 | BER: 4.246914e-003
-# Error! Time: 162744000000 | Expected: 0 | Got: 1
-# Error! Time: 162746000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 82000 | Errors: 346 | BER: 4.219512e-003
-# Error! Time: 165954000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 83000 | Errors: 347 | BER: 4.180723e-003
-# Error! Time: 167032000000 | Expected: 0 | Got: 1
-# Error! Time: 167872000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 84000 | Errors: 349 | BER: 4.154762e-003
-# Error! Time: 168746000000 | Expected: 0 | Got: 1
-# Error! Time: 168800000000 | Expected: 0 | Got: 1
-# Error! Time: 169754000000 | Expected: 0 | Got: 1
-# Error! Time: 169968000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 85000 | Errors: 353 | BER: 4.152941e-003
-# Error! Time: 170394000000 | Expected: 0 | Got: 1
-# Error! Time: 170402000000 | Expected: 0 | Got: 1
-# Error! Time: 170456000000 | Expected: 0 | Got: 1
-# Error! Time: 170776000000 | Expected: 0 | Got: 1
-# Error! Time: 171722000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 86000 | Errors: 358 | BER: 4.162791e-003
-# Error! Time: 173184000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 87000 | Errors: 359 | BER: 4.126437e-003
-# Error! Time: 174224000000 | Expected: 0 | Got: 1
-# Error! Time: 174928000000 | Expected: 0 | Got: 1
-# Error! Time: 175280000000 | Expected: 0 | Got: 1
-# Error! Time: 175450000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 88000 | Errors: 363 | BER: 4.125000e-003
-# Error! Time: 176218000000 | Expected: 0 | Got: 1
-# Error! Time: 177362000000 | Expected: 0 | Got: 1
-# Error! Time: 177394000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 89000 | Errors: 366 | BER: 4.112360e-003
-# Error! Time: 178418000000 | Expected: 0 | Got: 1
-# Error! Time: 179160000000 | Expected: 0 | Got: 1
-# Error! Time: 179826000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 90000 | Errors: 369 | BER: 4.100000e-003
-# Error! Time: 180904000000 | Expected: 0 | Got: 1
-# Error! Time: 181264000000 | Expected: 0 | Got: 1
-# Error! Time: 181322000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 91000 | Errors: 372 | BER: 4.087912e-003
-# Error! Time: 182778000000 | Expected: 0 | Got: 1
-# Error! Time: 183010000000 | Expected: 0 | Got: 1
-# Error! Time: 183256000000 | Expected: 0 | Got: 1
-# Error! Time: 183530000000 | Expected: 0 | Got: 1
-# Error! Time: 183704000000 | Expected: 0 | Got: 1
-# Error! Time: 183968000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 92000 | Errors: 378 | BER: 4.108696e-003
-# Error! Time: 184138000000 | Expected: 0 | Got: 1
-# Error! Time: 184730000000 | Expected: 0 | Got: 1
-# Error! Time: 184754000000 | Expected: 0 | Got: 1
-# Error! Time: 185850000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 93000 | Errors: 382 | BER: 4.107527e-003
-# Error! Time: 187114000000 | Expected: 0 | Got: 1
-# Error! Time: 187544000000 | Expected: 0 | Got: 1
-# Error! Time: 187712000000 | Expected: 0 | Got: 1
-# Error! Time: 187720000000 | Expected: 0 | Got: 1
-# Error! Time: 187728000000 | Expected: 0 | Got: 1
-# Error! Time: 187810000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 94000 | Errors: 388 | BER: 4.127660e-003
-# Error! Time: 188610000000 | Expected: 0 | Got: 1
-# Error! Time: 189472000000 | Expected: 0 | Got: 1
-# Error! Time: 189754000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 95000 | Errors: 391 | BER: 4.115789e-003
-# Error! Time: 190122000000 | Expected: 0 | Got: 1
-# Error! Time: 190320000000 | Expected: 0 | Got: 1
-# Error! Time: 190328000000 | Expected: 0 | Got: 1
-# Error! Time: 190464000000 | Expected: 0 | Got: 1
-# Error! Time: 190752000000 | Expected: 0 | Got: 1
-# Error! Time: 191192000000 | Expected: 0 | Got: 1
-# Error! Time: 191224000000 | Expected: 0 | Got: 1
-# Error! Time: 191232000000 | Expected: 0 | Got: 1
-# Error! Time: 191426000000 | Expected: 0 | Got: 1
-# Error! Time: 191552000000 | Expected: 0 | Got: 1
-# Error! Time: 191560000000 | Expected: 0 | Got: 1
-# Error! Time: 191648000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 96000 | Errors: 403 | BER: 4.197917e-003
-# Error! Time: 193466000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 97000 | Errors: 404 | BER: 4.164948e-003
-# Error! Time: 194346000000 | Expected: 0 | Got: 1
-# Error! Time: 195328000000 | Expected: 0 | Got: 1
-# Error! Time: 195352000000 | Expected: 0 | Got: 1
-# Error! Time: 195634000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 98000 | Errors: 408 | BER: 4.163265e-003
-# Error! Time: 196360000000 | Expected: 0 | Got: 1
-# Error! Time: 196482000000 | Expected: 0 | Got: 1
-# Error! Time: 196690000000 | Expected: 0 | Got: 1
-# Error! Time: 196712000000 | Expected: 0 | Got: 1
-# Error! Time: 196890000000 | Expected: 0 | Got: 1
-# Error! Time: 196898000000 | Expected: 0 | Got: 1
-# Error! Time: 197146000000 | Expected: 0 | Got: 1
-# Error! Time: 197456000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 99000 | Errors: 416 | BER: 4.202020e-003
-# Error! Time: 198448000000 | Expected: 0 | Got: 1
-# Error! Time: 198770000000 | Expected: 0 | Got: 1
-# Error! Time: 198832000000 | Expected: 0 | Got: 1
-# Error! Time: 198896000000 | Expected: 0 | Got: 1
-# Error! Time: 199144000000 | Expected: 0 | Got: 1
-# Error! Time: 199608000000 | Expected: 0 | Got: 1
-# Error! Time: 199952000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 100000 | Errors: 423 | BER: 4.230000e-003
-# Error! Time: 200152000000 | Expected: 0 | Got: 1
-# Error! Time: 200680000000 | Expected: 0 | Got: 1
-# Error! Time: 201552000000 | Expected: 0 | Got: 1
-# Error! Time: 201650000000 | Expected: 0 | Got: 1
-# Error! Time: 201672000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 101000 | Errors: 428 | BER: 4.237624e-003
-# Error! Time: 202704000000 | Expected: 0 | Got: 1
-# Error! Time: 203136000000 | Expected: 0 | Got: 1
-# Error! Time: 203370000000 | Expected: 0 | Got: 1
-# Error! Time: 203424000000 | Expected: 0 | Got: 1
-# Error! Time: 204040000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 102000 | Errors: 433 | BER: 4.245098e-003
-# Error! Time: 205136000000 | Expected: 0 | Got: 1
-# Error! Time: 205978000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 103000 | Errors: 435 | BER: 4.223301e-003
-# Error! Time: 206200000000 | Expected: 0 | Got: 1
-# Error! Time: 206730000000 | Expected: 0 | Got: 1
-# Error! Time: 206800000000 | Expected: 0 | Got: 1
-# Error! Time: 207066000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 104000 | Errors: 439 | BER: 4.221154e-003
-# Error! Time: 208512000000 | Expected: 0 | Got: 1
-# Error! Time: 208528000000 | Expected: 0 | Got: 1
-# Error! Time: 209256000000 | Expected: 0 | Got: 1
-# Error! Time: 209666000000 | Expected: 0 | Got: 1
-# Error! Time: 210002000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 105000 | Errors: 444 | BER: 4.228571e-003
-# Error! Time: 210186000000 | Expected: 0 | Got: 1
-# Error! Time: 210216000000 | Expected: 0 | Got: 1
-# Error! Time: 210952000000 | Expected: 0 | Got: 1
-# Error! Time: 210960000000 | Expected: 0 | Got: 1
-# Error! Time: 211032000000 | Expected: 0 | Got: 1
-# Error! Time: 211608000000 | Expected: 0 | Got: 1
-# Error! Time: 211616000000 | Expected: 0 | Got: 1
-# Error! Time: 211720000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 106000 | Errors: 452 | BER: 4.264151e-003
-# Error! Time: 212400000000 | Expected: 0 | Got: 1
-# Error! Time: 212866000000 | Expected: 0 | Got: 1
-# Error! Time: 213138000000 | Expected: 0 | Got: 1
-# Error! Time: 213458000000 | Expected: 0 | Got: 1
-# Error! Time: 214088000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 107000 | Errors: 457 | BER: 4.271028e-003
-# Error! Time: 215032000000 | Expected: 0 | Got: 1
-# Error! Time: 215250000000 | Expected: 0 | Got: 1
-# Error! Time: 215266000000 | Expected: 0 | Got: 1
-# Error! Time: 215282000000 | Expected: 0 | Got: 1
-# Error! Time: 215352000000 | Expected: 0 | Got: 1
-# Error! Time: 215914000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 108000 | Errors: 463 | BER: 4.287037e-003
-# Error! Time: 216424000000 | Expected: 0 | Got: 1
-# Error! Time: 217360000000 | Expected: 0 | Got: 1
-# Error! Time: 217426000000 | Expected: 0 | Got: 1
-# Error! Time: 217458000000 | Expected: 0 | Got: 1
-# Error! Time: 217626000000 | Expected: 0 | Got: 1
-# Error! Time: 217914000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 109000 | Errors: 469 | BER: 4.302752e-003
-# Error! Time: 218282000000 | Expected: 0 | Got: 1
-# Error! Time: 218728000000 | Expected: 0 | Got: 1
-# Error! Time: 219618000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 110000 | Errors: 472 | BER: 4.290909e-003
-# Error! Time: 220560000000 | Expected: 0 | Got: 1
-# Error! Time: 220578000000 | Expected: 0 | Got: 1
-# Error! Time: 220920000000 | Expected: 0 | Got: 1
-# Error! Time: 221104000000 | Expected: 0 | Got: 1
-# Error! Time: 221490000000 | Expected: 0 | Got: 1
-# Error! Time: 221594000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 111000 | Errors: 478 | BER: 4.306306e-003
-# Error! Time: 222664000000 | Expected: 0 | Got: 1
-# Error! Time: 222672000000 | Expected: 0 | Got: 1
-# Error! Time: 222818000000 | Expected: 0 | Got: 1
-# Error! Time: 223456000000 | Expected: 0 | Got: 1
-# Error! Time: 223712000000 | Expected: 0 | Got: 1
-# Error! Time: 223984000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 112000 | Errors: 484 | BER: 4.321429e-003
-# Error! Time: 225064000000 | Expected: 0 | Got: 1
-# Error! Time: 225666000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 113000 | Errors: 486 | BER: 4.300885e-003
-# Error! Time: 226648000000 | Expected: 0 | Got: 1
-# Error! Time: 226656000000 | Expected: 0 | Got: 1
-# Error! Time: 226792000000 | Expected: 0 | Got: 1
-# Error! Time: 226954000000 | Expected: 0 | Got: 1
-# Error! Time: 227568000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 114000 | Errors: 491 | BER: 4.307018e-003
-# Error! Time: 228288000000 | Expected: 0 | Got: 1
-# Error! Time: 228360000000 | Expected: 0 | Got: 1
-# Error! Time: 229032000000 | Expected: 0 | Got: 1
-# Error! Time: 229560000000 | Expected: 0 | Got: 1
-# Error! Time: 229656000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 115000 | Errors: 496 | BER: 4.313043e-003
-# Error! Time: 231330000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 116000 | Errors: 497 | BER: 4.284483e-003
-# Error! Time: 232784000000 | Expected: 0 | Got: 1
-# Error! Time: 233320000000 | Expected: 0 | Got: 1
-# Error! Time: 233552000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 117000 | Errors: 500 | BER: 4.273504e-003
-# Error! Time: 234504000000 | Expected: 0 | Got: 1
-# Error! Time: 234552000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 118000 | Errors: 502 | BER: 4.254237e-003
-# Error! Time: 236802000000 | Expected: 0 | Got: 1
-# Error! Time: 237386000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 119000 | Errors: 504 | BER: 4.235294e-003
-# Error! Time: 238970000000 | Expected: 0 | Got: 1
-# Error! Time: 239482000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 120000 | Errors: 506 | BER: 4.216667e-003
-# Error! Time: 240656000000 | Expected: 0 | Got: 1
-# Error! Time: 241600000000 | Expected: 0 | Got: 1
-# Error! Time: 241608000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 121000 | Errors: 509 | BER: 4.206612e-003
-# Error! Time: 242642000000 | Expected: 0 | Got: 1
-# Error! Time: 243104000000 | Expected: 0 | Got: 1
-# Error! Time: 243440000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 122000 | Errors: 512 | BER: 4.196721e-003
-# Error! Time: 244482000000 | Expected: 0 | Got: 1
-# Error! Time: 244562000000 | Expected: 0 | Got: 1
-# Error! Time: 244688000000 | Expected: 0 | Got: 1
-# Error! Time: 244786000000 | Expected: 0 | Got: 1
-# Error! Time: 245032000000 | Expected: 0 | Got: 1
-# Error! Time: 245290000000 | Expected: 0 | Got: 1
-# Error! Time: 245762000000 | Expected: 0 | Got: 1
-# Error! Time: 245872000000 | Expected: 0 | Got: 1
-# Error! Time: 246058000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 123000 | Errors: 521 | BER: 4.235772e-003
-# Error! Time: 247146000000 | Expected: 0 | Got: 1
-# Error! Time: 247192000000 | Expected: 0 | Got: 1
-# Error! Time: 247666000000 | Expected: 0 | Got: 1
-# Error! Time: 248016000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 124000 | Errors: 525 | BER: 4.233871e-003
-# Error! Time: 248896000000 | Expected: 0 | Got: 1
-# Error! Time: 249720000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 125000 | Errors: 527 | BER: 4.216000e-003
-# Error! Time: 251098000000 | Expected: 0 | Got: 1
-# Error! Time: 251392000000 | Expected: 0 | Got: 1
-# Error! Time: 251538000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 126000 | Errors: 530 | BER: 4.206349e-003
-# Error! Time: 252520000000 | Expected: 0 | Got: 1
-# Error! Time: 252720000000 | Expected: 0 | Got: 1
-# Error! Time: 253154000000 | Expected: 0 | Got: 1
-# Error! Time: 253194000000 | Expected: 0 | Got: 1
-# Error! Time: 253984000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 127000 | Errors: 535 | BER: 4.212598e-003
-# Error! Time: 255272000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 128000 | Errors: 536 | BER: 4.187500e-003
-# Error! Time: 256992000000 | Expected: 0 | Got: 1
-# Error! Time: 257080000000 | Expected: 0 | Got: 1
-# Error! Time: 257320000000 | Expected: 0 | Got: 1
-# Error! Time: 257752000000 | Expected: 0 | Got: 1
-# Error! Time: 257760000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 129000 | Errors: 541 | BER: 4.193798e-003
-# Error! Time: 258608000000 | Expected: 0 | Got: 1
-# Error! Time: 258776000000 | Expected: 0 | Got: 1
-# Error! Time: 259000000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 130000 | Errors: 544 | BER: 4.184615e-003
-# Error! Time: 260448000000 | Expected: 0 | Got: 1
-# Error! Time: 260912000000 | Expected: 0 | Got: 1
-# Error! Time: 261194000000 | Expected: 0 | Got: 1
-# Error! Time: 261498000000 | Expected: 0 | Got: 1
-# Error! Time: 261682000000 | Expected: 0 | Got: 1
-# Error! Time: 261888000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 131000 | Errors: 550 | BER: 4.198473e-003
-# Error! Time: 263210000000 | Expected: 0 | Got: 1
-# Error! Time: 263704000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 132000 | Errors: 552 | BER: 4.181818e-003
-# Error! Time: 264138000000 | Expected: 0 | Got: 1
-# Error! Time: 264186000000 | Expected: 0 | Got: 1
-# Error! Time: 264578000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 133000 | Errors: 555 | BER: 4.172932e-003
-# Error! Time: 266120000000 | Expected: 0 | Got: 1
-# Error! Time: 266178000000 | Expected: 0 | Got: 1
-# Error! Time: 266714000000 | Expected: 0 | Got: 1
-# Error! Time: 267018000000 | Expected: 0 | Got: 1
-# Error! Time: 267338000000 | Expected: 0 | Got: 1
-# Error! Time: 267776000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 134000 | Errors: 561 | BER: 4.186567e-003
-# Error! Time: 268400000000 | Expected: 0 | Got: 1
-# Error! Time: 268594000000 | Expected: 0 | Got: 1
-# Error! Time: 268610000000 | Expected: 0 | Got: 1
-# Error! Time: 269096000000 | Expected: 0 | Got: 1
-# Error! Time: 269152000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 135000 | Errors: 566 | BER: 4.192593e-003
-# Error! Time: 270194000000 | Expected: 0 | Got: 1
-# Error! Time: 271442000000 | Expected: 0 | Got: 1
-# Error! Time: 272098000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 136000 | Errors: 569 | BER: 4.183824e-003
-# Error! Time: 272442000000 | Expected: 0 | Got: 1
-# Error! Time: 272450000000 | Expected: 0 | Got: 1
-# Error! Time: 272898000000 | Expected: 0 | Got: 1
-# Error! Time: 273666000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 137000 | Errors: 573 | BER: 4.182482e-003
-# Error! Time: 274650000000 | Expected: 0 | Got: 1
-# Error! Time: 274728000000 | Expected: 0 | Got: 1
-# Error! Time: 274736000000 | Expected: 0 | Got: 1
-# Error! Time: 275186000000 | Expected: 0 | Got: 1
-# Error! Time: 275442000000 | Expected: 0 | Got: 1
-# Error! Time: 275592000000 | Expected: 0 | Got: 1
-# Error! Time: 275760000000 | Expected: 0 | Got: 1
-# Error! Time: 276098000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 138000 | Errors: 581 | BER: 4.210145e-003
-# Error! Time: 276378000000 | Expected: 0 | Got: 1
-# Error! Time: 277608000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 139000 | Errors: 583 | BER: 4.194245e-003
-# Error! Time: 278616000000 | Expected: 0 | Got: 1
-# Error! Time: 278810000000 | Expected: 0 | Got: 1
-# Error! Time: 278874000000 | Expected: 0 | Got: 1
-# Error! Time: 279074000000 | Expected: 0 | Got: 1
-# Error! Time: 279242000000 | Expected: 0 | Got: 1
-# Error! Time: 279362000000 | Expected: 0 | Got: 1
-# Error! Time: 279474000000 | Expected: 0 | Got: 1
-# Error! Time: 279792000000 | Expected: 0 | Got: 1
-# Error! Time: 280090000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 140000 | Errors: 592 | BER: 4.228571e-003
-# Error! Time: 280698000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 141000 | Errors: 593 | BER: 4.205674e-003
-# Error! Time: 282194000000 | Expected: 0 | Got: 1
-# Error! Time: 283042000000 | Expected: 0 | Got: 1
-# Error! Time: 283224000000 | Expected: 0 | Got: 1
-# Error! Time: 283242000000 | Expected: 0 | Got: 1
-# Error! Time: 283810000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 142000 | Errors: 598 | BER: 4.211268e-003
-# Error! Time: 284130000000 | Expected: 0 | Got: 1
-# Error! Time: 284544000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 143000 | Errors: 600 | BER: 4.195804e-003
-# Error! Time: 286848000000 | Expected: 0 | Got: 1
-# Error! Time: 286864000000 | Expected: 0 | Got: 1
-# Error! Time: 287616000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 144000 | Errors: 603 | BER: 4.187500e-003
-# Error! Time: 288152000000 | Expected: 0 | Got: 1
-# Error! Time: 288200000000 | Expected: 0 | Got: 1
-# Error! Time: 288936000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 145000 | Errors: 606 | BER: 4.179310e-003
-# Error! Time: 290506000000 | Expected: 0 | Got: 1
-# Error! Time: 291578000000 | Expected: 0 | Got: 1
-# Error! Time: 291888000000 | Expected: 0 | Got: 1
-# Error! Time: 291896000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 146000 | Errors: 610 | BER: 4.178082e-003
-# Error! Time: 292128000000 | Expected: 0 | Got: 1
-# Error! Time: 292192000000 | Expected: 0 | Got: 1
-# Error! Time: 293144000000 | Expected: 0 | Got: 1
-# Error! Time: 293258000000 | Expected: 0 | Got: 1
-# Error! Time: 293602000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 147000 | Errors: 615 | BER: 4.183673e-003
-# Error! Time: 295170000000 | Expected: 0 | Got: 1
-# Error! Time: 295322000000 | Expected: 0 | Got: 1
-# Error! Time: 295632000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 148000 | Errors: 618 | BER: 4.175676e-003
-# Error! Time: 296754000000 | Expected: 0 | Got: 1
-# Error! Time: 296848000000 | Expected: 0 | Got: 1
-# Error! Time: 297720000000 | Expected: 0 | Got: 1
-# Error! Time: 297784000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 149000 | Errors: 622 | BER: 4.174497e-003
-# Error! Time: 298896000000 | Expected: 0 | Got: 1
-# Error! Time: 299834000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 150000 | Errors: 624 | BER: 4.160000e-003
-# Error! Time: 301090000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 151000 | Errors: 625 | BER: 4.139073e-003
-# Error! Time: 302898000000 | Expected: 0 | Got: 1
-# Error! Time: 303200000000 | Expected: 0 | Got: 1
-# Error! Time: 303408000000 | Expected: 0 | Got: 1
-# Error! Time: 303680000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 152000 | Errors: 629 | BER: 4.138158e-003
-# Error! Time: 304242000000 | Expected: 0 | Got: 1
-# Error! Time: 305018000000 | Expected: 0 | Got: 1
-# Error! Time: 305434000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 153000 | Errors: 632 | BER: 4.130719e-003
-# Error! Time: 306648000000 | Expected: 0 | Got: 1
-# Error! Time: 307064000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 154000 | Errors: 634 | BER: 4.116883e-003
-# Error! Time: 308778000000 | Expected: 0 | Got: 1
-# Error! Time: 309074000000 | Expected: 0 | Got: 1
-# Error! Time: 309626000000 | Expected: 0 | Got: 1
-# Error! Time: 309642000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 155000 | Errors: 638 | BER: 4.116129e-003
-# Error! Time: 310120000000 | Expected: 0 | Got: 1
-# Error! Time: 310722000000 | Expected: 0 | Got: 1
-# Error! Time: 310730000000 | Expected: 0 | Got: 1
-# Error! Time: 311944000000 | Expected: 0 | Got: 1
-# Error! Time: 312080000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 156000 | Errors: 643 | BER: 4.121795e-003
-# Error! Time: 312458000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 157000 | Errors: 644 | BER: 4.101911e-003
-# Error! Time: 314648000000 | Expected: 0 | Got: 1
-# Error! Time: 315232000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 158000 | Errors: 646 | BER: 4.088608e-003
-# Error! Time: 316712000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 159000 | Errors: 647 | BER: 4.069182e-003
-# Error! Time: 318336000000 | Expected: 0 | Got: 1
-# Error! Time: 319176000000 | Expected: 0 | Got: 1
-# Error! Time: 319442000000 | Expected: 0 | Got: 1
-# Error! Time: 319632000000 | Expected: 0 | Got: 1
-# Error! Time: 320080000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 160000 | Errors: 652 | BER: 4.075000e-003
-# Error! Time: 320232000000 | Expected: 0 | Got: 1
-# Error! Time: 320240000000 | Expected: 0 | Got: 1
-# Error! Time: 321906000000 | Expected: 0 | Got: 1
-# Error! Time: 321954000000 | Expected: 0 | Got: 1
-# Error! Time: 321962000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 161000 | Errors: 657 | BER: 4.080745e-003
-# Error! Time: 322240000000 | Expected: 0 | Got: 1
-# Error! Time: 322378000000 | Expected: 0 | Got: 1
-# Error! Time: 323314000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 162000 | Errors: 660 | BER: 4.074074e-003
-# Error! Time: 324154000000 | Expected: 0 | Got: 1
-# Error! Time: 324224000000 | Expected: 0 | Got: 1
-# Error! Time: 325024000000 | Expected: 0 | Got: 1
-# Error! Time: 325040000000 | Expected: 0 | Got: 1
-# Error! Time: 325706000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 163000 | Errors: 665 | BER: 4.079755e-003
-# Error! Time: 326136000000 | Expected: 0 | Got: 1
-# Error! Time: 326664000000 | Expected: 0 | Got: 1
-# Error! Time: 327536000000 | Expected: 0 | Got: 1
-# Error! Time: 327850000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 164000 | Errors: 669 | BER: 4.079268e-003
-# Error! Time: 328392000000 | Expected: 0 | Got: 1
-# Error! Time: 329066000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 165000 | Errors: 671 | BER: 4.066667e-003
-# Error! Time: 330346000000 | Expected: 0 | Got: 1
-# Error! Time: 330680000000 | Expected: 0 | Got: 1
-# Error! Time: 330776000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 166000 | Errors: 674 | BER: 4.060241e-003
-# Error! Time: 332450000000 | Expected: 0 | Got: 1
-# Error! Time: 332528000000 | Expected: 0 | Got: 1
-# Error! Time: 332650000000 | Expected: 0 | Got: 1
-# Error! Time: 332888000000 | Expected: 0 | Got: 1
-# Error! Time: 332906000000 | Expected: 0 | Got: 1
-# Error! Time: 332914000000 | Expected: 0 | Got: 1
-# Error! Time: 333426000000 | Expected: 0 | Got: 1
-# Error! Time: 333826000000 | Expected: 0 | Got: 1
-# Error! Time: 334034000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 167000 | Errors: 683 | BER: 4.089820e-003
-# Error! Time: 334224000000 | Expected: 0 | Got: 1
-# Error! Time: 334408000000 | Expected: 0 | Got: 1
-# Error! Time: 335048000000 | Expected: 0 | Got: 1
-# Error! Time: 335560000000 | Expected: 0 | Got: 1
-# Error! Time: 335760000000 | Expected: 0 | Got: 1
-# Error! Time: 335946000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 168000 | Errors: 689 | BER: 4.101190e-003
-# Error! Time: 336738000000 | Expected: 0 | Got: 1
-# Error! Time: 338096000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 169000 | Errors: 691 | BER: 4.088757e-003
-# Error! Time: 338250000000 | Expected: 0 | Got: 1
-# Error! Time: 339528000000 | Expected: 0 | Got: 1
-# Error! Time: 339962000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 170000 | Errors: 694 | BER: 4.082353e-003
-# Error! Time: 341304000000 | Expected: 0 | Got: 1
-# Error! Time: 341448000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 171000 | Errors: 696 | BER: 4.070175e-003
-# Error! Time: 342320000000 | Expected: 0 | Got: 1
-# Error! Time: 343336000000 | Expected: 0 | Got: 1
-# Error! Time: 343808000000 | Expected: 0 | Got: 1
-# Error! Time: 343882000000 | Expected: 0 | Got: 1
-# Error! Time: 344106000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 172000 | Errors: 701 | BER: 4.075581e-003
-# Error! Time: 344448000000 | Expected: 0 | Got: 1
-# Error! Time: 345616000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 173000 | Errors: 703 | BER: 4.063584e-003
-# Error! Time: 346256000000 | Expected: 0 | Got: 1
-# Error! Time: 346522000000 | Expected: 0 | Got: 1
-# Error! Time: 347728000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 174000 | Errors: 706 | BER: 4.057471e-003
-# Error! Time: 348232000000 | Expected: 0 | Got: 1
-# Error! Time: 348904000000 | Expected: 0 | Got: 1
-# Error! Time: 349130000000 | Expected: 0 | Got: 1
-# Error! Time: 349416000000 | Expected: 0 | Got: 1
-# Error! Time: 349632000000 | Expected: 0 | Got: 1
-# Error! Time: 349834000000 | Expected: 0 | Got: 1
-# Error! Time: 349864000000 | Expected: 0 | Got: 1
-# Error! Time: 349912000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 175000 | Errors: 714 | BER: 4.080000e-003
-# Error! Time: 350384000000 | Expected: 0 | Got: 1
-# Error! Time: 350496000000 | Expected: 0 | Got: 1
-# Error! Time: 351600000000 | Expected: 0 | Got: 1
-# Error! Time: 351752000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 176000 | Errors: 718 | BER: 4.079545e-003
-# Error! Time: 353768000000 | Expected: 0 | Got: 1
-# Error! Time: 354066000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 177000 | Errors: 720 | BER: 4.067797e-003
-# Error! Time: 354520000000 | Expected: 0 | Got: 1
-# Error! Time: 354528000000 | Expected: 0 | Got: 1
-# Error! Time: 354888000000 | Expected: 0 | Got: 1
-# Error! Time: 355200000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 178000 | Errors: 724 | BER: 4.067416e-003
-# Progress -> Total Bits: 179000 | Errors: 724 | BER: 4.044693e-003
-# Error! Time: 358304000000 | Expected: 0 | Got: 1
-# Error! Time: 358520000000 | Expected: 0 | Got: 1
-# Error! Time: 359592000000 | Expected: 0 | Got: 1
-# Error! Time: 359696000000 | Expected: 0 | Got: 1
-# Error! Time: 359922000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 180000 | Errors: 729 | BER: 4.050000e-003
-# Error! Time: 360130000000 | Expected: 0 | Got: 1
-# Error! Time: 360480000000 | Expected: 0 | Got: 1
-# Error! Time: 360592000000 | Expected: 0 | Got: 1
-# Error! Time: 361162000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 181000 | Errors: 733 | BER: 4.049724e-003
-# Error! Time: 362224000000 | Expected: 0 | Got: 1
-# Error! Time: 362794000000 | Expected: 0 | Got: 1
-# Error! Time: 363568000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 182000 | Errors: 736 | BER: 4.043956e-003
-# Error! Time: 364280000000 | Expected: 0 | Got: 1
-# Error! Time: 364384000000 | Expected: 0 | Got: 1
-# Error! Time: 364392000000 | Expected: 0 | Got: 1
-# Error! Time: 364688000000 | Expected: 0 | Got: 1
-# Error! Time: 365184000000 | Expected: 0 | Got: 1
-# Error! Time: 365570000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 183000 | Errors: 742 | BER: 4.054645e-003
-# Error! Time: 366594000000 | Expected: 0 | Got: 1
-# Error! Time: 367770000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 184000 | Errors: 744 | BER: 4.043478e-003
-# Error! Time: 368658000000 | Expected: 0 | Got: 1
-# Error! Time: 369834000000 | Expected: 0 | Got: 1
-# Error! Time: 369960000000 | Expected: 0 | Got: 1
-# Error! Time: 370096000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 185000 | Errors: 748 | BER: 4.043243e-003
-# Error! Time: 370576000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 186000 | Errors: 749 | BER: 4.026882e-003
-# Error! Time: 372714000000 | Expected: 0 | Got: 1
-# Error! Time: 372936000000 | Expected: 0 | Got: 1
-# Error! Time: 373184000000 | Expected: 0 | Got: 1
-# Error! Time: 373192000000 | Expected: 0 | Got: 1
-# Error! Time: 373216000000 | Expected: 0 | Got: 1
-# Error! Time: 373290000000 | Expected: 0 | Got: 1
-# Error! Time: 373298000000 | Expected: 0 | Got: 1
-# Error! Time: 373328000000 | Expected: 0 | Got: 1
-# Error! Time: 373480000000 | Expected: 0 | Got: 1
-# Error! Time: 373792000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 187000 | Errors: 759 | BER: 4.058824e-003
-# Error! Time: 374896000000 | Expected: 0 | Got: 1
-# Error! Time: 374904000000 | Expected: 0 | Got: 1
-# Error! Time: 375066000000 | Expected: 0 | Got: 1
-# Error! Time: 375144000000 | Expected: 0 | Got: 1
-# Error! Time: 375984000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 188000 | Errors: 764 | BER: 4.063830e-003
-# Error! Time: 376416000000 | Expected: 0 | Got: 1
-# Error! Time: 377994000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 189000 | Errors: 766 | BER: 4.052910e-003
-# Error! Time: 378938000000 | Expected: 0 | Got: 1
-# Error! Time: 379184000000 | Expected: 0 | Got: 1
-# Error! Time: 379200000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 190000 | Errors: 769 | BER: 4.047368e-003
-# Error! Time: 380346000000 | Expected: 0 | Got: 1
-# Error! Time: 380674000000 | Expected: 0 | Got: 1
-# Error! Time: 380872000000 | Expected: 0 | Got: 1
-# Error! Time: 380968000000 | Expected: 0 | Got: 1
-# Error! Time: 381018000000 | Expected: 0 | Got: 1
-# Error! Time: 382016000000 | Expected: 0 | Got: 1
-# Error! Time: 382018000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 191000 | Errors: 776 | BER: 4.062827e-003
-# Error! Time: 382522000000 | Expected: 0 | Got: 1
-# Error! Time: 382562000000 | Expected: 0 | Got: 1
-# Error! Time: 382570000000 | Expected: 0 | Got: 1
-# Error! Time: 382954000000 | Expected: 0 | Got: 1
-# Error! Time: 383538000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 192000 | Errors: 781 | BER: 4.067708e-003
-# Error! Time: 384186000000 | Expected: 0 | Got: 1
-# Error! Time: 384786000000 | Expected: 0 | Got: 1
-# Error! Time: 384856000000 | Expected: 0 | Got: 1
-# Error! Time: 386106000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 193000 | Errors: 785 | BER: 4.067358e-003
-# Error! Time: 386146000000 | Expected: 0 | Got: 1
-# Error! Time: 387810000000 | Expected: 0 | Got: 1
-# Error! Time: 387842000000 | Expected: 0 | Got: 1
-# Error! Time: 387882000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 194000 | Errors: 789 | BER: 4.067010e-003
-# Error! Time: 389250000000 | Expected: 0 | Got: 1
-# Error! Time: 389730000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 195000 | Errors: 791 | BER: 4.056410e-003
-# Error! Time: 391410000000 | Expected: 0 | Got: 1
-# Error! Time: 391544000000 | Expected: 0 | Got: 1
-# Error! Time: 392064000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 196000 | Errors: 794 | BER: 4.051020e-003
-# Error! Time: 392664000000 | Expected: 0 | Got: 1
-# Error! Time: 393112000000 | Expected: 0 | Got: 1
-# Error! Time: 393136000000 | Expected: 0 | Got: 1
-# Error! Time: 394010000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 197000 | Errors: 798 | BER: 4.050761e-003
-# Error! Time: 394584000000 | Expected: 0 | Got: 1
-# Error! Time: 395610000000 | Expected: 0 | Got: 1
-# Error! Time: 395856000000 | Expected: 0 | Got: 1
-# Error! Time: 396002000000 | Expected: 0 | Got: 1
-# Error! Time: 396064000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 198000 | Errors: 803 | BER: 4.055556e-003
-# Error! Time: 396394000000 | Expected: 0 | Got: 1
-# Error! Time: 396962000000 | Expected: 0 | Got: 1
-# Error! Time: 397458000000 | Expected: 0 | Got: 1
-# Error! Time: 397488000000 | Expected: 0 | Got: 1
-# Error! Time: 397578000000 | Expected: 0 | Got: 1
-# Error! Time: 398032000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 199000 | Errors: 809 | BER: 4.065327e-003
-# Error! Time: 398282000000 | Expected: 0 | Got: 1
-# Error! Time: 398856000000 | Expected: 0 | Got: 1
-# Error! Time: 399210000000 | Expected: 0 | Got: 1
-# Error! Time: 399530000000 | Expected: 0 | Got: 1
-# Error! Time: 399568000000 | Expected: 0 | Got: 1
-# Error! Time: 399642000000 | Expected: 0 | Got: 1
-# Progress -> Total Bits: 200000 | Errors: 815 | BER: 4.075000e-003
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: top_vlg_tst.i1.demod.u_carrier_sync.u_nco.nl11O
+add wave -position insertpoint  \
+sim:/top_vlg_tst/i1/mod/fir_out_i
+add wave -position insertpoint  \
+sim:/top_vlg_tst/i1/mod/fir_out_q
+# Break key hit 
+# Break in Module demod_fir at C:/Users/21503/Desktop/My_16QAM-main/demod_fir.vo line 12110
+# Simulation Breakpoint: Break in Module demod_fir at C:/Users/21503/Desktop/My_16QAM-main/demod_fir.vo line 12110
+# MACRO ./top_run_msim_rtl_verilog.do PAUSED at line 37
+restart
+# ** Warning: (vsim-3017) C:/Users/21503/Desktop/My_16QAM-main/my_nco_10m.vo(1880): [TFMPC] - Too few port connections. Expected 15, found 14.
 # 
-# ========================================
-#            FINAL BER REPORT             
-# ========================================
-# Total Bits : 200000
-# Error Bits : 815
-# Final BER  : 4.075000e-003
-# ========================================
+#         Region: /top_vlg_tst/i1/demod/u_carrier_sync/u_nco/nllOi
+# ** Warning: (vsim-3722) C:/Users/21503/Desktop/My_16QAM-main/my_nco_10m.vo(1880): [TFMPC] - Missing connection for port 'eq'.
 # 
-# Break in Module top_vlg_tst at C:/Users/21503/Desktop/My_16QAM-main/top.vt line 139
-# Simulation Breakpoint: Break in Module top_vlg_tst at C:/Users/21503/Desktop/My_16QAM-main/top.vt line 139
-# MACRO ./top_run_msim_rtl_verilog.do PAUSED at line 30
+run -all
+# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
+# Time: 0  Instance: top_vlg_tst.i1.demod.u_carrier_sync.u_nco.nl11O
+# ==================================================
+#   System Converged! BER calculation STARTED!      
+# ==================================================
+# Global Bits: 159998 | Valid Bits: 10000 | Errors: 31 | BER: 3.100000e-003
+# Global Bits: 169998 | Valid Bits: 20000 | Errors: 74 | BER: 3.700000e-003
+# Global Bits: 179998 | Valid Bits: 30000 | Errors: 116 | BER: 3.866667e-003
+# Break key hit 
+# Break in Module demod_fir at C:/Users/21503/Desktop/My_16QAM-main/demod_fir.vo line 12420

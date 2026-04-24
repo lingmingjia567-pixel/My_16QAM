@@ -29,8 +29,12 @@ module awgn_channel(
     end
 
     wire signed [15:0] current_noise = noise_rom[noise_ptr];
+    
+    // 🔴 核心恢复 1：解封噪声加法器！(用 17 位寄存器装，防止溢出)
     wire signed [16:0] noisy_sum = tx_signal + current_noise;
 
+    // 🔴 核心恢复 2：解封饱和截断逻辑！(极其专业的 IC 设计习惯)
+    // 如果加完噪声超过了 16位有符号数的最大/最小值，就强行顶格，防止波形突变反转
     assign rx_signal = (noisy_sum > 17'sd32767)  ? 16'sd32767 :
                        (noisy_sum < -17'sd32768) ? 16'sh8000  : 
                        noisy_sum[15:0];
@@ -38,10 +42,9 @@ module awgn_channel(
 // synthesis translate_on
 
 
+// 🔴 核心剥离：把原来的直通线彻底切断！
 // synthesis read_comments_as_HDL on
-
-    // assign rx_signal = tx_signal;
-
+// assign rx_signal = tx_signal; 
 // synthesis read_comments_as_HDL off
 
 endmodule

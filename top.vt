@@ -1,22 +1,6 @@
-// Copyright (C) 2018  Intel Corporation. All rights reserved.
-// ... (Intel License header) ...
-
-// *****************************************************************************
-// This file contains a Verilog test bench template that is freely editable to  
-// suit user's needs .Comments are provided in each section to help the user    
-// fill out necessary details.                                                  
-// *****************************************************************************
-// Generated on "12/19/2020 00:33:47"
-                                                                                
-// Verilog Test Bench template for design : top
-// 
-// Simulation tool : ModelSim-Altera (Verilog)
-// 
-
 `timescale 10 ns/ 10 ns
 module top_vlg_tst();
-// constants                                           
-// general purpose registers
+
 // test vector input registers
 reg carrier_clk;
 reg reset_n;
@@ -37,10 +21,6 @@ top i1 (
 
 initial                                                
 begin                                                  
-// code that executes only once                        
-// insert code here --> begin                          
-                                                       
-// --> end                                             
 	reset_n = 1'b0;
 	signal_clk = 1'b0;
 	carrier_clk = 1'b0;
@@ -48,14 +28,8 @@ begin
 end                                                    
 
 always                                                 
-// optional sensitivity list                           
-// @(event1 or event2 or .... eventn)                  
 begin                                                  
-// code executes for every event on sensitivity list   
-// insert code here --> begin                          
 	 #50.0 carrier_clk = ~carrier_clk;  //模拟 PLL 输出的 10MHz 采样时钟 (周期 100ns)
-                                                       
-// --> end                                             
 end    
 
 always
@@ -63,25 +37,22 @@ begin
 	#100.0 signal_clk = ~signal_clk;	//模拟 PLL 输出的 5MHz 比特时钟 (周期 200ns)
 end
 
+
 // =========================================================
-// 🏆 终极绝杀：自动误码率 (BER) 统计模块 
+// 🏆 毕设最终汇报版：双轨计数与完美对齐
 // =========================================================
 
-// 🔴 核心密码 1：延迟对齐 (需要你动态校准)
-// in_data 和 out_data 之间差了多少个比特周期？请看波形填入！
-parameter DELAY_BITS = 53; 
+parameter DELAY_BITS = 55; 
+parameter SKIP_TIME = 30000000; // 300ms 垃圾时间
 
-// 🔴 核心密码 2：跳过垃圾时间
-// timescale 是 10ns，如果想跳过 300us，就是 300,000ns = 30000 个 timescale 单位
-parameter SKIP_TIME = 11700; 
-
-// 统计用内部寄存器
-integer total_bits = 0;
+// 🌟 双轨计数器
+integer global_bits = 0; // 从头开始的总比特数
+integer calc_bits = 0;   // 收敛后用于计算误码的有效比特数
 integer error_bits = 0;
 real current_ber = 0.0;
 reg start_calc = 0;
 
-// 1. 构造“时间机器” (移位寄存器)，把 in_data 强行往后拖延
+// 1. 构造“时间机器” (移位寄存器)
 reg [127:0] delay_line = 128'b0;
 
 always @(posedge signal_clk) begin
@@ -91,52 +62,53 @@ always @(posedge signal_clk) begin
         delay_line <= {delay_line[126:0], in_data};
 end
 
-// 这就是延迟了指定拍数、和 out_data 处于同一物理时间的“完美对齐输入”
 wire in_data_aligned = delay_line[DELAY_BITS - 1];
 
 // 2. 倒计时器：跳过前期的混乱状态
 initial begin
     #SKIP_TIME;
     start_calc = 1;
-    $display("========================================");
-    $display("Trash time ended. BER calculation STARTED!");
-    $display("========================================");
+    $display("==================================================");
+    $display("  System Converged! BER calculation STARTED!      ");
+    $display("==================================================");
 end
 
-// 3. 逐比特比对法官 (带实时进度条 + 终极结算)
+// 3. 终极双轨法官
 always @(negedge signal_clk) begin 
-    if (start_calc) begin
-        total_bits = total_bits + 1;
+    if (reset_n) begin
+        // 只要没复位，全局计数器永远在跑
+        global_bits = global_bits + 1; 
         
-        // 抓到内鬼！
-        if (in_data_aligned !== out_data) begin
-            error_bits = error_bits + 1;
-            // 发现误码时打印
-            $display("Error! Time: %0t | Expected: %b | Got: %b", 
-                     $time, in_data_aligned, out_data);
-        end
-        
-        // 🟢 进度条恢复：每 1000 个比特汇报一次实时战况！
-        if (total_bits % 1000 == 0) begin
-            current_ber = (error_bits * 1.0) / total_bits;
-            $display("Progress -> Total Bits: %0d | Errors: %0d | BER: %e", 
-                     total_bits, error_bits, current_ber);
-        end
-        
-        // 🔴 终极结算：200,000 比特跑完，做最终汇报并停车！
-        if (total_bits == 200000) begin
-            current_ber = (error_bits * 1.0) / total_bits;
+        // 当垃圾时间结束，计分计数器才开始工作
+        if (start_calc) begin
+            calc_bits = calc_bits + 1;
             
-            $display("\n========================================");
-            $display("           FINAL BER REPORT             ");
-            $display("========================================");
-            $display("Total Bits : %0d", total_bits);
-            $display("Error Bits : %0d", error_bits);
-            $display("Final BER  : %e", current_ber);
-            $display("========================================\n");
+            // 抓错码！
+            if (in_data_aligned !== out_data) begin
+                error_bits = error_bits + 1;
+            end
             
-            // 跑完了自动踩刹车，停止仿真！
-            $stop; 
+            // 🟢 实时打卡：每 10000 个有效比特汇报一次
+            if (calc_bits % 10000 == 0) begin
+                current_ber = (error_bits * 1.0) / calc_bits;
+                $display("Global Bits: %0d | Valid Bits: %0d | Errors: %0d | BER: %e", 
+                         global_bits, calc_bits, error_bits, current_ber);
+            end
+            
+            // 🔴 终极结算：有效比特跑满 100,000 个，强制停车！
+            if (calc_bits == 100000) begin
+                current_ber = (error_bits * 1.0) / calc_bits;
+                
+                $display("\n==================================================");
+                $display("             FINAL BER REPORT                     ");
+                $display("==================================================");
+                $display("Total Global Bits : %0d (System lifetime)", global_bits);
+                $display("Total Valid Bits  : %0d (Evaluated bits)", calc_bits);
+                $display("Total Error Bits  : %0d", error_bits);
+                $display("Final BER         : %e", current_ber);
+                $display("==================================================\n");
+                $stop; 
+            end
         end
     end
 end

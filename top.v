@@ -21,7 +21,7 @@ mod_16QAM mod(
 // 2. AWGN 信道 (Channel)
 // ==========================================
 awgn_channel channel(
-    .clk(carrier_clk),      // 🔴 注意：噪声是按 10MHz 采样的，所以必须接 carrier_clk！
+    .clk(carrier_clk),      
     .reset_n(reset_n),
     .tx_signal(mod_data),   // 接入纯净信号
     .rx_signal(noisy_data)  // 输出带噪信号
