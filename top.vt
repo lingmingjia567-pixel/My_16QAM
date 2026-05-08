@@ -1,33 +1,6 @@
-// Copyright (C) 2018  Intel Corporation. All rights reserved.
-// Your use of Intel Corporation's design tools, logic functions 
-// and other software and tools, and its AMPP partner logic 
-// functions, and any output files from any of the foregoing 
-// (including device programming or simulation files), and any 
-// associated documentation or information are expressly subject 
-// to the terms and conditions of the Intel Program License 
-// Subscription Agreement, the Intel Quartus Prime License Agreement,
-// the Intel FPGA IP License Agreement, or other applicable license
-// agreement, including, without limitation, that your use is for
-// the sole purpose of programming logic devices manufactured by
-// Intel and sold by Intel or its authorized distributors.  Please
-// refer to the applicable agreement for further details.
-
-// *****************************************************************************
-// This file contains a Verilog test bench template that is freely editable to  
-// suit user's needs .Comments are provided in each section to help the user    
-// fill out necessary details.                                                  
-// *****************************************************************************
-// Generated on "12/19/2020 00:33:47"
-                                                                                
-// Verilog Test Bench template for design : top
-// 
-// Simulation tool : ModelSim-Altera (Verilog)
-// 
-
 `timescale 10 ns/ 10 ns
 module top_vlg_tst();
-// constants                                           
-// general purpose registers
+
 // test vector input registers
 reg carrier_clk;
 reg reset_n;
@@ -45,31 +18,128 @@ top i1 (
 	.reset_n(reset_n),
 	.signal_clk(signal_clk)
 );
+
 initial                                                
 begin                                                  
-// code that executes only once                        
-// insert code here --> begin                          
-                                                       
-// --> end                                             
-	#0 reset_n=1'b0;
-	#0 signal_clk=1'b0;
-	#0 carrier_clk=1'b0;
-	#2 reset_n = 1'b1;
+	reset_n = 1'b0;
+	signal_clk = 1'b0;
+	carrier_clk = 1'b0;
+	#250 reset_n = 1'b1;
 end                                                    
+
 always                                                 
-// optional sensitivity list                           
-// @(event1 or event2 or .... eventn)                  
 begin                                                  
-// code executes for every event on sensitivity list   
-// insert code here --> begin                          
-	#1 carrier_clk = ~carrier_clk;   
-                                              
-// --> end                                             
+	 #50.0 carrier_clk = ~carrier_clk;  //模拟 PLL 输出的 10MHz 采样时钟 (周期 100ns)
 end    
+
 always
 begin
-	#5000 signal_clk =~signal_clk;
+	#100.0 signal_clk = ~signal_clk;	//模拟 PLL 输出的 5MHz 比特时钟 (周期 200ns)
 end
-                                                
-endmodule
 
+
+// =========================================================
+// 🏆 毕设最终汇报版：双轨计数与完美对齐
+// =========================================================
+
+parameter DELAY_BITS = 55; 
+parameter SKIP_TIME = 30000000; // 300ms 垃圾时间
+
+// 🌟 双轨计数器
+integer global_bits = 0; // 从头开始的总比特数
+integer calc_bits = 0;   // 收敛后用于计算误码的有效比特数
+integer error_bits = 0;
+real current_ber = 0.0;
+reg start_calc = 0;
+
+// 1. 构造“时间机器” (移位寄存器)
+reg [127:0] delay_line = 128'b0;
+
+always @(posedge signal_clk) begin
+    if (!reset_n)
+        delay_line <= 128'b0;
+    else
+        delay_line <= {delay_line[126:0], in_data};
+end
+
+wire in_data_aligned = delay_line[DELAY_BITS - 1];
+
+// 2. 倒计时器：跳过前期的混乱状态
+initial begin
+    #SKIP_TIME;
+    start_calc = 1;
+    $display("==================================================");
+    $display("  System Converged! BER calculation STARTED!      ");
+    $display("==================================================");
+end
+
+// 3. 终极双轨法官
+always @(negedge signal_clk) begin 
+    if (reset_n) begin
+        // 只要没复位，全局计数器永远在跑
+        global_bits = global_bits + 1; 
+        
+        // 当垃圾时间结束，计分计数器才开始工作
+        if (start_calc) begin
+            calc_bits = calc_bits + 1;
+            
+            // 抓错码！
+            if (in_data_aligned !== out_data) begin
+                error_bits = error_bits + 1;
+            end
+            
+            // 🟢 实时打卡：每 10000 个有效比特汇报一次
+            if (calc_bits % 10000 == 0) begin
+                current_ber = (error_bits * 1.0) / calc_bits;
+                $display("Global Bits: %0d | Valid Bits: %0d | Errors: %0d | BER: %e", 
+                         global_bits, calc_bits, error_bits, current_ber);
+            end
+            
+            // 🔴 终极结算：有效比特跑满 100,000 个，强制停车！
+            if (calc_bits == 100000) begin
+                current_ber = (error_bits * 1.0) / calc_bits;
+                
+                $display("\n==================================================");
+                $display("             FINAL BER REPORT                     ");
+                $display("==================================================");
+                $display("Total Global Bits : %0d (System lifetime)", global_bits);
+                $display("Total Valid Bits  : %0d (Evaluated bits)", calc_bits);
+                $display("Total Error Bits  : %0d", error_bits);
+                $display("Final BER         : %e", current_ber);
+                $display("==================================================\n");
+                $stop; 
+            end
+        end
+    end
+end
+
+// =========================================================
+// 📸 星座图录像机：将 FPGA 内部的 I/Q 数据导出给 MATLAB
+// =========================================================
+
+integer file_iq;
+
+initial begin
+    // 自动在你的 modelsim 目录下创建一个 txt 文件存放 I/Q 数据
+    file_iq = $fopen("C:/Users/21503/Desktop/My_16QAM-main/simulation/modelsim/fpga_iq_data.txt", "w");
+    if (!file_iq) begin
+        $display("Error: Could not open file!");
+    end
+end
+
+// 🌟 重点：通过跨层级引用（Hierarchical Path），抓取最核心的数据！
+// 注意：下面路径里的 `i1` 是你顶层模块的名字。
+// `demod` 是你在 top.v 里例化 demod_16QAM 时的名字，如果你的例化名不一样，请对应修改！
+always @(posedge carrier_clk) begin
+    if (reset_n) begin
+        // 只有当定时环路说“现在是最佳采样点”时，才按下快门记录
+        if (i1.demod.symbol_strobe) begin
+            // 把解旋转后的最终 I 和 Q 数据以十进制写入文件，中间加个空格
+            $fwrite(file_iq, "%d %d %d %d\n", 
+        $signed(i1.demod.fir_i), $signed(i1.demod.fir_q),     // 前两个数：同步前 (满天星)
+        $signed(i1.demod.final_i), $signed(i1.demod.final_q)  // 后两个数：同步后 (完美16点)
+);
+        end
+    end
+end
+endmodule

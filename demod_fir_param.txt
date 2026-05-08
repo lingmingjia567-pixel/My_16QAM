@@ -4,12 +4,12 @@ blank_gen    : READ
 alpha     : 0
 fc1       : 1.25e+006
 fc2       : 3.75e+006
-length    : 16
+length    : 49
 samp_rate : 1e+007
 win_type  : NON 
 flt_type  : LPF 
 ---end_set---
-coef_bit_width  : 9
+coef_bit_width  : 12
 coef_conv_sel   : AUTO 
 coef_pow2       : FALSE 
 coef_sbf_left   : 0
@@ -52,13 +52,13 @@ blank_num_sys   : 0
 rate_ctrl       : RATE_CTRL_OFF 
 atlantic_out    : MASTER 
 atlantic_in     : MASTER 
-fir_bit_width   : 20
-num_coef_mem     : 2
-coef_mem_width  : 9
+fir_bit_width   : 23
+num_coef_mem     : 7
+coef_mem_width  : 8
 coef_mem_addr   : 4
 num_coef_one_mem : 1
 fmax			: 0
-num_lc			: 742
+num_lc			: 2853
 num_m4k			: 0
 num_m512			: 0
 num_MRAM			: 0

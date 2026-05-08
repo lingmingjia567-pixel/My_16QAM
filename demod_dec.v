@@ -1,36 +1,35 @@
-/*
-* 判决
-*/
-module demod_dec(fir_data,reset_n,carrier_clk,signal_clk,signal);
+// =========================================================
+// 🚀 16QAM 黄金判决器 (终极闭环驱动版)
+// =========================================================
+module demod_dec(fir_data, reset_n, carrier_clk, signal_clk, signal);
 input signed [19:0] fir_data;
-input reset_n,carrier_clk,signal_clk;
+input reset_n;
+input carrier_clk; 
+input signal_clk;  // 🔴 顶层送进来的闭环快门脉冲 (symbol_strobe)
 output reg [1:0] signal;
 
-// 🔴 核心修改 1：把死板的门限 5000 改为适应新滤波器的 24000
-localparam N = 20'd24000; 
+// 有符号判决门限
+parameter signed [19:0] THRESHOLD = 20'sd58000;
 
-reg [1:0] buffer;
-wire signed [19:0] fir_abs; // 用线网实时计算绝对值，消灭时序错位
-
-// 🔴 核心修改 2：使用组合逻辑实时求绝对值，零延迟
-assign fir_abs = (fir_data < 0) ? -fir_data : fir_data;
-
+// 🔴 核心改造：拔掉机械的 8 倍计数器，彻底放弃 PHASE_OFFSET！
+// 巅峰抓取与星座映射 
 always @(posedge carrier_clk or negedge reset_n) begin
-	if(!reset_n) begin
-		buffer <= 2'd0;
-	end else begin
-        // 🔴 核心修改 3：在同一个时钟上升沿，同时完美判定符号和幅度
-		buffer[1] <= (fir_data > 0) ? 1'b0 : 1'b1;  // 判断极性：大于是0，小于是1
-		buffer[0] <= (fir_abs > N) ? 1'b1 : 1'b0;   // 判断幅度：绝对值大于门限是1，否则是0
-	end
-end
-
-always @(posedge signal_clk or negedge reset_n) begin
-	if(!reset_n) begin
-		signal <= 2'b0;
-	end else begin
-		signal <= buffer;
-	end
+    if (!reset_n) begin
+        signal <= 2'b00;
+    end else if (signal_clk) begin 
+        // 🟢 只要听到智能快门咔嚓声 (signal_clk为高)，立刻无脑拍照判决！
+        
+        // 正统格雷码字典：全部采用有符号比较
+        if (fir_data > THRESHOLD)
+            signal <= 2'b10;       // 收到+3，就是 10
+        else if (fir_data > 20'sd0) 
+            signal <= 2'b11;       // 收到+1，就是 11
+        else if (fir_data > -THRESHOLD)
+            signal <= 2'b01;       // 收到-1，就是 01
+        else
+            signal <= 2'b00;       // 收到-3，就是 00
+            
+    end
 end
 
 endmodule
