@@ -9,7 +9,7 @@ input signal_clk;  // 🔴 顶层送进来的闭环快门脉冲 (symbol_strobe)
 output reg [1:0] signal;
 
 // 有符号判决门限
-parameter signed [19:0] THRESHOLD = 20'sd58000;
+parameter signed [19:0] THRESHOLD = 20'sd50000;
 
 // 🔴 核心改造：拔掉机械的 8 倍计数器，彻底放弃 PHASE_OFFSET！
 // 巅峰抓取与星座映射 

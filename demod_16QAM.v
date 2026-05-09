@@ -145,19 +145,13 @@ wire signed [19:0] final_q;
 // 每次只留一行取消注释，其他的用 // 注释掉！
 // =========================================================
 
-// 钥匙 1 (0度)：
- //assign final_i = derot_i;  assign final_q = derot_q;
+// 🟢 钥匙 1：应对 0° 或 180° 锁定 (无 I/Q 交叉)
+//assign final_i = derot_i;  
+//assign final_q = derot_q;
 
-// 钥匙 2 (-90度 / 270度)：目前默认先用这把
-assign final_i = derot_q;  assign final_q = -derot_i;
-
-// 钥匙 3 (180度)：
-// assign final_i = -derot_i; assign final_q = -derot_q;
-
-// 钥匙 4 (90度)：
-// assign final_i = -derot_q; assign final_q = derot_i;
-
-// =========================================================
+// 🔴 钥匙 2：应对 90° 或 270° 锁定 (发生了 I/Q 交叉，强行旋回90°)
+ assign final_i = derot_q;  
+ assign final_q = -derot_i;
 
 demod_dec demod_dec_i(
     .fir_data(final_i), .reset_n(reset_n), .carrier_clk(carrier_clk), 

@@ -39,6 +39,33 @@ end
 
 
 // =========================================================
+// 🌟 全局状态变量提前声明 (修复先使用后声明的编译报错)
+// =========================================================
+reg start_calc = 0;
+
+
+// =========================================================
+// 🔋 【终极版】自动能量探测器：精准统计纯净信号的真实 RMS
+// =========================================================
+//real sum_squares = 0.0;
+//integer rms_samples = 0;
+//real fpga_true_rms = 0.0;
+
+//always @(posedge carrier_clk) begin
+//    if (reset_n) begin
+//        // 🌟 严格等 300ms 垃圾时间结束，只统计稳态信号的能量！
+//        if (start_calc) begin
+            // 🚨 核心修复：先用 $itor 转成浮点数再乘，彻底解决 16位 乘法溢出问题！
+ //           sum_squares = sum_squares + ($itor($signed(i1.mod_data)) * $itor($signed(i1.mod_data)));
+ //           rms_samples = rms_samples + 1;
+ //       end
+//    end
+//end
+// =========================================================
+// =========================================================
+
+
+// =========================================================
 // 🏆 毕设最终汇报版：双轨计数与完美对齐
 // =========================================================
 
@@ -50,7 +77,6 @@ integer global_bits = 0; // 从头开始的总比特数
 integer calc_bits = 0;   // 收敛后用于计算误码的有效比特数
 integer error_bits = 0;
 real current_ber = 0.0;
-reg start_calc = 0;
 
 // 1. 构造“时间机器” (移位寄存器)
 reg [127:0] delay_line = 128'b0;
@@ -106,7 +132,17 @@ always @(negedge signal_clk) begin
                 $display("Total Valid Bits  : %0d (Evaluated bits)", calc_bits);
                 $display("Total Error Bits  : %0d", error_bits);
                 $display("Final BER         : %e", current_ber);
-                $display("==================================================\n");
+                $display("==================================================");
+                
+					 //打印FPGA稳态有效值
+              //  fpga_true_rms = $sqrt(sum_squares / rms_samples);
+              //  $display("\n==================================================");
+              //  $display("      TX PURE SIGNAL ENERGY STATISTICS (RMS)      ");
+              //  $display("==================================================");
+               // $display("Steady-state Sample Count : %d", rms_samples);
+              //  $display("FPGA True RMS Value       : %f", fpga_true_rms);
+              //  $display("==================================================\n");
+                
                 $stop; 
             end
         end
@@ -127,9 +163,6 @@ initial begin
     end
 end
 
-// 🌟 重点：通过跨层级引用（Hierarchical Path），抓取最核心的数据！
-// 注意：下面路径里的 `i1` 是你顶层模块的名字。
-// `demod` 是你在 top.v 里例化 demod_16QAM 时的名字，如果你的例化名不一样，请对应修改！
 always @(posedge carrier_clk) begin
     if (reset_n) begin
         // 只有当定时环路说“现在是最佳采样点”时，才按下快门记录

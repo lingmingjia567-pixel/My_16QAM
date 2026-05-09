@@ -216,49 +216,6 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-# ** Warning: (vsim-PLI-3407) Too many data words read on line 400001 of file "C:/Users/21503/Desktop/My_16QAM-main/simulation/modelsim/Noise_only.txt". (Current address [400000], address range [0:399999])    : C:/Users/21503/Desktop/My_16QAM-main/awgn_channel.v(16)
-#    Time: 0 ps  Iteration: 0  Instance: /top_vlg_tst/i1/channel
-# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
-# Time: 0  Instance: top_vlg_tst.i1.demod.u_fixed_nco.nl11O
-# Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
-# Time: 0  Instance: top_vlg_tst.i1.demod.u_carrier_sync.u_bb_nco.nl11O
-add wave -position insertpoint  \
-sim:/top_vlg_tst/i1/demod/timing_loop_out
-add wave -position insertpoint  \
-sim:/top_vlg_tst/i1/demod/u_carrier_sync/freq_control_word
-# Break key hit 
-# Simulation stop requested.
-# Simulation Breakpoint: Simulation stop requested.
-# MACRO ./top_run_msim_rtl_verilog.do PAUSED at line 37
-# Break key hit 
-restart
-# ** Warning: (vsim-3017) C:/Users/21503/Desktop/My_16QAM-main/my_nco_10m.vo(1880): [TFMPC] - Too few port connections. Expected 15, found 14.
-# 
-#         Region: /top_vlg_tst/i1/demod/u_fixed_nco/nllOi
-# ** Warning: (vsim-3722) C:/Users/21503/Desktop/My_16QAM-main/my_nco_10m.vo(1880): [TFMPC] - Missing connection for port 'eq'.
-# 
-# ** Warning: (vsim-3017) C:/Users/21503/Desktop/My_16QAM-main/demod_16QAM.v(70): [TFMPC] - Too few port connections. Expected 10, found 8.
-# 
-#         Region: /top_vlg_tst/i1/demod/demod_fir_i
-# ** Warning: (vsim-3722) C:/Users/21503/Desktop/My_16QAM-main/demod_16QAM.v(70): [TFMPC] - Missing connection for port 'ast_sink_ready'.
-# 
-# ** Warning: (vsim-3722) C:/Users/21503/Desktop/My_16QAM-main/demod_16QAM.v(70): [TFMPC] - Missing connection for port 'ast_source_error'.
-# 
-# ** Warning: (vsim-3017) C:/Users/21503/Desktop/My_16QAM-main/demod_16QAM.v(85): [TFMPC] - Too few port connections. Expected 10, found 8.
-# 
-#         Region: /top_vlg_tst/i1/demod/demod_fir_q
-# ** Warning: (vsim-3722) C:/Users/21503/Desktop/My_16QAM-main/demod_16QAM.v(85): [TFMPC] - Missing connection for port 'ast_sink_ready'.
-# 
-# ** Warning: (vsim-3722) C:/Users/21503/Desktop/My_16QAM-main/demod_16QAM.v(85): [TFMPC] - Missing connection for port 'ast_source_error'.
-# 
-# ** Warning: (vsim-3017) C:/Users/21503/Desktop/My_16QAM-main/my_nco_10m.vo(1880): [TFMPC] - Too few port connections. Expected 15, found 14.
-# 
-#         Region: /top_vlg_tst/i1/demod/u_carrier_sync/u_bb_nco/nllOi
-# ** Warning: (vsim-3722) C:/Users/21503/Desktop/My_16QAM-main/my_nco_10m.vo(1880): [TFMPC] - Missing connection for port 'eq'.
-# 
-run -all
-# ** Warning: (vsim-PLI-3407) Too many data words read on line 400001 of file "C:/Users/21503/Desktop/My_16QAM-main/simulation/modelsim/Noise_only.txt". (Current address [400000], address range [0:399999])    : C:/Users/21503/Desktop/My_16QAM-main/awgn_channel.v(16)
-#    Time: 0 ps  Iteration: 0  Instance: /top_vlg_tst/i1/channel
 # Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
 # Time: 0  Instance: top_vlg_tst.i1.demod.u_fixed_nco.nl11O
 # Warning: read_during_write_mode_mixed_ports is assumed as               OLD_DATA
@@ -266,24 +223,25 @@ run -all
 # ==================================================
 #   System Converged! BER calculation STARTED!      
 # ==================================================
-# Global Bits: 159998 | Valid Bits: 10000 | Errors: 34 | BER: 3.400000e-003
-# Global Bits: 169998 | Valid Bits: 20000 | Errors: 87 | BER: 4.350000e-003
-# Global Bits: 179998 | Valid Bits: 30000 | Errors: 131 | BER: 4.366667e-003
-# Global Bits: 189998 | Valid Bits: 40000 | Errors: 182 | BER: 4.550000e-003
-# Global Bits: 199998 | Valid Bits: 50000 | Errors: 234 | BER: 4.680000e-003
-# Global Bits: 209998 | Valid Bits: 60000 | Errors: 280 | BER: 4.666667e-003
-# Global Bits: 219998 | Valid Bits: 70000 | Errors: 334 | BER: 4.771429e-003
-# Global Bits: 229998 | Valid Bits: 80000 | Errors: 389 | BER: 4.862500e-003
-# Global Bits: 239998 | Valid Bits: 90000 | Errors: 441 | BER: 4.900000e-003
-# Global Bits: 249998 | Valid Bits: 100000 | Errors: 472 | BER: 4.720000e-003
+# Global Bits: 159998 | Valid Bits: 10000 | Errors: 96 | BER: 9.600000e-003
+# Global Bits: 169998 | Valid Bits: 20000 | Errors: 206 | BER: 1.030000e-002
+# Global Bits: 179998 | Valid Bits: 30000 | Errors: 268 | BER: 8.933333e-003
+# Global Bits: 189998 | Valid Bits: 40000 | Errors: 356 | BER: 8.900000e-003
+# Global Bits: 199998 | Valid Bits: 50000 | Errors: 444 | BER: 8.880000e-003
+# Global Bits: 209998 | Valid Bits: 60000 | Errors: 522 | BER: 8.700000e-003
+# Global Bits: 219998 | Valid Bits: 70000 | Errors: 612 | BER: 8.742857e-003
+# Global Bits: 229998 | Valid Bits: 80000 | Errors: 692 | BER: 8.650000e-003
+# Global Bits: 239998 | Valid Bits: 90000 | Errors: 778 | BER: 8.644444e-003
+# Global Bits: 249998 | Valid Bits: 100000 | Errors: 855 | BER: 8.550000e-003
 # 
 # ==================================================
 #              FINAL BER REPORT                     
 # ==================================================
 # Total Global Bits : 249998 (System lifetime)
 # Total Valid Bits  : 100000 (Evaluated bits)
-# Total Error Bits  : 472
-# Final BER         : 4.720000e-003
+# Total Error Bits  : 855
+# Final BER         : 8.550000e-003
 # ==================================================
-# 
-# Break in Module top_vlg_tst at C:/Users/21503/Desktop/My_16QAM-main/top.vt line 110
+# Break in Module top_vlg_tst at C:/Users/21503/Desktop/My_16QAM-main/top.vt line 146
+# Simulation Breakpoint: Break in Module top_vlg_tst at C:/Users/21503/Desktop/My_16QAM-main/top.vt line 146
+# MACRO ./top_run_msim_rtl_verilog.do PAUSED at line 37
